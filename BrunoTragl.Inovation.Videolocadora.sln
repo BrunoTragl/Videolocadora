@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30309.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{6CBB3578-6537-4F1F-8902-09B243BF752D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{69A408E3-B8FF-4ABE-825B-E5BAC205BA8B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrunoTragl.Inovation.Videolocadora.Domain.Model", "BrunoTragl.Inovation.Videolocadora.Domain.Services\BrunoTragl.Inovation.Videolocadora.Domain.Model.csproj", "{78C53BED-4856-466C-BFEA-6EA044581998}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{0E19A6AE-AB1C-4AB9-ABB8-E4612A10160C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{948D40E5-F3CF-40E9-B31B-869579967791}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrunoTragl.Inovation.Videolocadora.Infrastructure.Repository", "BrunoTragl.Inovation.Videolocadora.Infrastructure.Repository\BrunoTragl.Inovation.Videolocadora.Infrastructure.Repository.csproj", "{7DC1BEA9-B502-4EB7-964A-DD8AE1743A07}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrunoTragl.Inovation.Videolocadora.Application.Business", "BrunoTragl.Inovation.Videolocadora.Application.Business\BrunoTragl.Inovation.Videolocadora.Application.Business.csproj", "{4C51FFA3-CC04-475A-BBA2-1EC79E1BB146}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrunoTragl.Inovation.Videolocadora.Services.WebApi", "BrunoTragl.Inovation.Videolocadora.Services.WebApi\BrunoTragl.Inovation.Videolocadora.Services.WebApi.csproj", "{F34E5886-BDBC-4ED9-BA6D-6A7033510270}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrunoTragl.Inovation.Videolocadora.Infrastructure.Data", "BrunoTragl.Inovation.Videolocadora.Infrastructure.Data\BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.csproj", "{8C68F9FB-899E-4B01-A433-23B04DA6AFF3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{78C53BED-4856-466C-BFEA-6EA044581998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78C53BED-4856-466C-BFEA-6EA044581998}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78C53BED-4856-466C-BFEA-6EA044581998}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78C53BED-4856-466C-BFEA-6EA044581998}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DC1BEA9-B502-4EB7-964A-DD8AE1743A07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DC1BEA9-B502-4EB7-964A-DD8AE1743A07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DC1BEA9-B502-4EB7-964A-DD8AE1743A07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DC1BEA9-B502-4EB7-964A-DD8AE1743A07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C51FFA3-CC04-475A-BBA2-1EC79E1BB146}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C51FFA3-CC04-475A-BBA2-1EC79E1BB146}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C51FFA3-CC04-475A-BBA2-1EC79E1BB146}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C51FFA3-CC04-475A-BBA2-1EC79E1BB146}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F34E5886-BDBC-4ED9-BA6D-6A7033510270}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F34E5886-BDBC-4ED9-BA6D-6A7033510270}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F34E5886-BDBC-4ED9-BA6D-6A7033510270}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F34E5886-BDBC-4ED9-BA6D-6A7033510270}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C68F9FB-899E-4B01-A433-23B04DA6AFF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C68F9FB-899E-4B01-A433-23B04DA6AFF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C68F9FB-899E-4B01-A433-23B04DA6AFF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C68F9FB-899E-4B01-A433-23B04DA6AFF3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{78C53BED-4856-466C-BFEA-6EA044581998} = {69A408E3-B8FF-4ABE-825B-E5BAC205BA8B}
+		{7DC1BEA9-B502-4EB7-964A-DD8AE1743A07} = {0E19A6AE-AB1C-4AB9-ABB8-E4612A10160C}
+		{4C51FFA3-CC04-475A-BBA2-1EC79E1BB146} = {948D40E5-F3CF-40E9-B31B-869579967791}
+		{F34E5886-BDBC-4ED9-BA6D-6A7033510270} = {6CBB3578-6537-4F1F-8902-09B243BF752D}
+		{8C68F9FB-899E-4B01-A433-23B04DA6AFF3} = {0E19A6AE-AB1C-4AB9-ABB8-E4612A10160C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {032D9D4E-6CF1-4DBE-A8F7-2F2CB9F23626}
+	EndGlobalSection
+EndGlobal

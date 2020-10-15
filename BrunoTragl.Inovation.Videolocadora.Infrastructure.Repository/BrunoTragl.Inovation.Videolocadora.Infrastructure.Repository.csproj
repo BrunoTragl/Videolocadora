@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BrunoTragl.Inovation.Videolocadora.Domain.Services\BrunoTragl.Inovation.Videolocadora.Domain.Model.csproj" />
+    <ProjectReference Include="..\BrunoTragl.Inovation.Videolocadora.Infrastructure.Data\BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.csproj" />
+  </ItemGroup>
+
+</Project>
