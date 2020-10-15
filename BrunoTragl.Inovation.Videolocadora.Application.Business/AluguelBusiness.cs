@@ -14,6 +14,28 @@ namespace BrunoTragl.Inovation.Videolocadora.Application.Business
         {
             _aluguelRepository = aluguelRepository;
         }
+        public Aluguel Get(int id)
+        {
+            try
+            {
+                return _aluguelRepository.Get(id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public IEnumerable<Aluguel> Get(Expression<Func<Aluguel, bool>> exp)
+        {
+            try
+            {
+                return _aluguelRepository.Get(exp);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public void Add(Aluguel aluguel)
         {
             try
@@ -25,20 +47,6 @@ namespace BrunoTragl.Inovation.Videolocadora.Application.Business
                 throw ex;
             }
         }
-
-        public void Desactive(Aluguel aluguel)
-        {
-            try
-            {
-                aluguel.Ativo = false;
-                _aluguelRepository.Edit(aluguel);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
         public void Edit(Aluguel actualAluguel, Aluguel editedAluguel)
         {
             try
@@ -53,7 +61,18 @@ namespace BrunoTragl.Inovation.Videolocadora.Application.Business
                 throw ex;
             }
         }
-
+        public void Desactive(Aluguel aluguel)
+        {
+            try
+            {
+                aluguel.Ativo = false;
+                _aluguelRepository.Edit(aluguel);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public bool Exist(int id)
         {
             try
@@ -64,22 +83,6 @@ namespace BrunoTragl.Inovation.Videolocadora.Application.Business
             {
                 throw ex;
             }
-        }
-
-        public Aluguel Get(int id)
-        {
-            try
-            {
-                return _aluguelRepository.Get(id);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-        public IEnumerable<Aluguel> Get(Expression<Func<Aluguel, bool>> exp)
-        {
-            return _aluguelRepository.Get(exp);
         }
     }
 }

@@ -71,7 +71,14 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Repository
         }
         public IEnumerable<Aluguel> Get(Expression<Func<Aluguel, bool>> exp)
         {
-            return _videolocadoraContext.Aluguel.Where(exp);
+            try
+            {
+                return _videolocadoraContext.Aluguel.Include(i => i.Cliente).Include(i => i.Filme).Include(i => i.Funcionario).Where(exp);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
