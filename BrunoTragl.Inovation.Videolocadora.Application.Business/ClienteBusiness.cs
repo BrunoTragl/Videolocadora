@@ -69,6 +69,17 @@ namespace BrunoTragl.Inovation.Videolocadora.Application.Business
         {
             return _clienteRepository.Get(exp);
         }
+        public IEnumerable<Cliente> Pagination(Expression<Func<Cliente, bool>> exp, int skip, int take)
+        {
+            try
+            {
+                return _clienteRepository.Pagination(exp, skip, take);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public bool PossuiPendencias(Cliente cliente)
         {
             try

@@ -10,13 +10,20 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.DTO
         public string Sobrenome { get; set; }
         public string Email { get; set; }
         public string Telefone { get; set; }
-        public string Skip { get; set; }
-        public string Take { get; set; }
+        public int Skip { get; set; }
+        public int Take { get; set; }
 
-        public bool Valid()
+        public bool IsValid()
         {
-            return (!string.IsNullOrEmpty(Nome) || !string.IsNullOrEmpty(Sobrenome) || string.IsNullOrEmpty(Telefone))
-                   && (!string.IsNullOrEmpty(Skip) && !string.IsNullOrEmpty(Take));
+            return (!string.IsNullOrEmpty(Nome) || !string.IsNullOrEmpty(Sobrenome) || string.IsNullOrEmpty(Telefone)) && Take > 0;
+        }
+
+        public Expression<Func<Cliente, bool>> Search()
+        {
+            return p => p.Nome.Contains(!string.IsNullOrEmpty(Nome) ? Nome : "")
+                     && p.Sobrenome.Contains(!string.IsNullOrEmpty(Sobrenome) ? Sobrenome : "")
+                     && p.Telefone.Contains(!string.IsNullOrEmpty(Telefone) ? Telefone : "")
+                     && p.Email.Contains(!string.IsNullOrEmpty(Email) ? Email : "");
         }
     }
 }

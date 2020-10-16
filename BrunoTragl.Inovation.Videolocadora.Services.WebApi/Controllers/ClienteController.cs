@@ -1,8 +1,10 @@
 ﻿using BrunoTragl.Inovation.Videolocadora.Application.Business.Interfaces;
 using BrunoTragl.Inovation.Videolocadora.Domain.Model;
+using BrunoTragl.Inovation.Videolocadora.Services.WebApi.DTO;
 using BrunoTragl.Inovation.Videolocadora.Services.WebApi.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 
 namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
 {
@@ -24,6 +26,27 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
             try
             {
                 Cliente cliente = _clienteBusiness.Get(id);
+
+                if (cliente == null)
+                    return NotFound();
+
+                return Ok(cliente);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Get([FromBody] PaginationDTO pagination)
+        {
+            try
+            {
+                if (!pagination.IsValid())
+                    return BadRequest("Informe corretamente os campos de pesquisa.");
+
+                IEnumerable<Cliente> cliente = _clienteBusiness.Pagination(pagination.Search(), pagination.Skip, pagination.Take);
 
                 if (cliente == null)
                     return NotFound();
