@@ -2,9 +2,9 @@
 using System;
 using System.Linq.Expressions;
 
-namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.DTO
+namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Model
 {
-    public class PaginationDTO
+    public class PaginationModel
     {
         public string Nome { get; set; }
         public string Sobrenome { get; set; }

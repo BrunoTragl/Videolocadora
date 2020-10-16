@@ -1,6 +1,5 @@
 ﻿using BrunoTragl.Inovation.Videolocadora.Application.Business.Interfaces;
-using BrunoTragl.Inovation.Videolocadora.Domain.Model;
-using BrunoTragl.Inovation.Videolocadora.Services.WebApi.Extensions;
+using BrunoTragl.Inovation.Videolocadora.Services.WebApi.Model;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
@@ -23,12 +22,12 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
         {
             try
             {
-                Filme filme = _filmeBusiness.Get(id);
+                FilmeModel currentModel = FilmeModel.ToModel(_filmeBusiness.Get(id));
 
-                if (filme == null)
+                if (currentModel == null)
                     return NotFound();
 
-                return Ok(filme);
+                return Ok(currentModel.ToBody());
             }
             catch (Exception ex)
             {
@@ -37,18 +36,18 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(int id, Filme editedFilme)
+        public IActionResult Put(int id, FilmeModel editedModel)
         {
             try
             {
-                Filme filme = _filmeBusiness.Get(id);
+                FilmeModel currentModel = FilmeModel.ToModel(_filmeBusiness.Get(id));
 
-                if (filme == null)
+                if (currentModel == null)
                     return NotFound();
 
-                _filmeBusiness.Edit(filme, editedFilme);
+                _filmeBusiness.Edit(currentModel.ToDomain(), editedModel.ToDomain());
 
-                return Ok(filme);
+                return Ok(currentModel.ToBody());
             }
             catch (Exception ex)
             {
@@ -57,14 +56,14 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(Filme filme)
+        public IActionResult Post(FilmeModel newModel)
         {
             try
             {
-                if (filme != null && filme.IsValid())
+                if (newModel != null && newModel.IsValid())
                 {
-                    _filmeBusiness.Add(filme);
-                    return Ok(filme);
+                    _filmeBusiness.Add(newModel.ToDomain());
+                    return Ok(newModel.ToBody());
                 }
 
                 return BadRequest("Preencha corretamente todos os campos do filme.");
@@ -80,15 +79,15 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
         {
             try
             {
-                Filme filme = _filmeBusiness.Get(id);
+                FilmeModel currentModel = FilmeModel.ToModel(_filmeBusiness.Get(id));
 
-                if (filme == null)
+                if (currentModel == null)
                     return NotFound();
 
-                if (!_filmeBusiness.FilmeJaAlugado(filme))
+                if (!_filmeBusiness.FilmeJaAlugado(currentModel.ToDomain()))
                 {
-                    _filmeBusiness.Desactive(filme);
-                    return Ok(filme);
+                    _filmeBusiness.Desactive(currentModel.ToDomain());
+                    return Ok(currentModel);
                 }
 
                 return BadRequest("Não foi possível desativar este filme, pois ele já foi utilizado anteriormente em um ou mais aluguéis.");

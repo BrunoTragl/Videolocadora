@@ -1,6 +1,6 @@
 ﻿using BrunoTragl.Inovation.Videolocadora.Application.Business.Interfaces;
 using BrunoTragl.Inovation.Videolocadora.Domain.Model;
-using BrunoTragl.Inovation.Videolocadora.Services.WebApi.Extensions;
+using BrunoTragl.Inovation.Videolocadora.Services.WebApi.Model;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
@@ -23,12 +23,12 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
         {
             try
             {
-                Aluguel aluguel = _aluguelBusiness.Get(id);
+                AluguelModel currentModel = AluguelModel.ToModel(_aluguelBusiness.Get(id));
 
-                if (aluguel == null)
+                if (currentModel == null)
                     return NotFound();
 
-                return Ok(aluguel);
+                return Ok(currentModel.ToBody());
             }
             catch (Exception ex)
             {
@@ -37,18 +37,18 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(int id, Aluguel editedAluguel)
+        public IActionResult Put(int id, AluguelModel editedModel)
         {
             try
             {
-                Aluguel aluguel = _aluguelBusiness.Get(id);
+                AluguelModel currentModel = AluguelModel.ToModel(_aluguelBusiness.Get(id));
 
-                if (aluguel == null)
+                if (currentModel == null)
                     return NotFound();
 
-                _aluguelBusiness.Edit(aluguel, editedAluguel);
+                _aluguelBusiness.Edit(currentModel.ToDomain(), editedModel.ToDomain());
 
-                return Ok(aluguel);
+                return Ok(currentModel.ToBody());
             }
             catch (Exception ex)
             {
@@ -57,14 +57,14 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(Aluguel aluguel)
+        public IActionResult Post(AluguelModel newModel)
         {
             try
             {
-                if (aluguel != null && aluguel.IsValid())
+                if (newModel != null && newModel.IsValid())
                 {
-                    _aluguelBusiness.Add(aluguel);
-                    Ok(aluguel);
+                    _aluguelBusiness.Add(newModel.ToDomain());
+                    Ok(newModel.ToBody());
                 }
 
                 return BadRequest("Preencha corretamente todos os campos do aluguel.");
@@ -80,15 +80,15 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
         {
             try
             {
-                Aluguel aluguel = _aluguelBusiness.Get(id);
+                AluguelModel currentModel = AluguelModel.ToModel(_aluguelBusiness.Get(id));
 
-                if (aluguel == null)
+                if (currentModel == null)
                     return NotFound();
 
-                if (aluguel.IsValidToDesactive())
+                if (currentModel.IsValidToDesactive())
                 {
-                    _aluguelBusiness.Desactive(aluguel);
-                    return Ok(aluguel);
+                    _aluguelBusiness.Desactive(currentModel.ToDomain());
+                    return Ok(currentModel.ToBody());
                 }
 
                 return BadRequest("Não foi possível desativar este aluguel, pois já possui valor pago ou multa.");

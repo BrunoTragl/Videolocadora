@@ -1,7 +1,6 @@
 ﻿using BrunoTragl.Inovation.Videolocadora.Application.Business.Interfaces;
 using BrunoTragl.Inovation.Videolocadora.Domain.Model;
-using BrunoTragl.Inovation.Videolocadora.Services.WebApi.DTO;
-using BrunoTragl.Inovation.Videolocadora.Services.WebApi.Extensions;
+using BrunoTragl.Inovation.Videolocadora.Services.WebApi.Model;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -25,12 +24,12 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
         {
             try
             {
-                Cliente cliente = _clienteBusiness.Get(id);
+                ClienteModel currentModel = ClienteModel.ToModel(_clienteBusiness.Get(id));
 
-                if (cliente == null)
+                if (currentModel == null)
                     return NotFound();
 
-                return Ok(cliente);
+                return Ok(currentModel.ToBody());
             }
             catch (Exception ex)
             {
@@ -39,19 +38,21 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get([FromBody] PaginationDTO pagination)
+        public IActionResult Get([FromBody] PaginationModel pagination)
         {
             try
             {
                 if (!pagination.IsValid())
                     return BadRequest("Informe corretamente os campos de pesquisa.");
 
-                IEnumerable<Cliente> cliente = _clienteBusiness.Pagination(pagination.Search(), pagination.Skip, pagination.Take);
+                IEnumerable<ClienteModel> listClienteModel = ClienteModel.ToListModel(_clienteBusiness.Pagination(pagination.Search(), 
+                                                                                                                  pagination.Skip, 
+                                                                                                                  pagination.Take));
 
-                if (cliente == null)
+                if (listClienteModel == null)
                     return NotFound();
 
-                return Ok(cliente);
+                return Ok(ListBodyModel<ClienteModel>.ToBodyList(listClienteModel));
             }
             catch (Exception ex)
             {
@@ -60,18 +61,18 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(int id, Cliente editedCliente)
+        public IActionResult Put(int id, ClienteModel editedModel)
         {
             try
             {
-                Cliente cliente = _clienteBusiness.Get(id);
+                ClienteModel currentModel = ClienteModel.ToModel(_clienteBusiness.Get(id));
 
-                if (cliente == null)
+                if (currentModel == null)
                     return NotFound();
 
-                _clienteBusiness.Edit(cliente, editedCliente);
+                _clienteBusiness.Edit(currentModel.ToDomain(), editedModel.ToDomain());
 
-                return Ok(cliente);
+                return Ok(currentModel.ToBody());
             }
             catch (Exception ex)
             {
@@ -80,14 +81,14 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(Cliente cliente)
+        public IActionResult Post(ClienteModel newModel)
         {
             try
             {
-                if (cliente != null && cliente.IsValid())
+                if (newModel != null && newModel.IsValid())
                 {
-                    _clienteBusiness.Add(cliente);
-                    return Ok(cliente);
+                    _clienteBusiness.Add(newModel.ToDomain());
+                    return Ok(newModel.ToBody());
                 }
 
                 return BadRequest("Preencha corretamente todos os campos do cliente.");
@@ -103,15 +104,15 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
         {
             try
             {
-                Cliente cliente = _clienteBusiness.Get(id);
+                ClienteModel currentModel = ClienteModel.ToModel(_clienteBusiness.Get(id));
 
-                if (cliente == null)
+                if (currentModel == null)
                     return NotFound();
 
-                if (!_clienteBusiness.PossuiPendencias(cliente))
+                if (!_clienteBusiness.PossuiPendencias(currentModel.ToDomain()))
                 {
-                    _clienteBusiness.Desactive(cliente);
-                    return Ok(cliente);
+                    _clienteBusiness.Desactive(currentModel.ToDomain());
+                    return Ok(currentModel.ToBody());
                 }
 
                 return BadRequest("Não foi possível desativar este aluguel, pois já possui valor pago ou multa.");

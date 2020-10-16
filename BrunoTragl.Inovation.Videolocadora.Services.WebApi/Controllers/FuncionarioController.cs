@@ -1,6 +1,5 @@
 ﻿using BrunoTragl.Inovation.Videolocadora.Application.Business.Interfaces;
-using BrunoTragl.Inovation.Videolocadora.Domain.Model;
-using BrunoTragl.Inovation.Videolocadora.Services.WebApi.Extensions;
+using BrunoTragl.Inovation.Videolocadora.Services.WebApi.Model;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
@@ -23,12 +22,12 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
         {
             try
             {
-                Funcionario funcionario = _funcionarioBusiness.Get(id);
-
-                if (funcionario == null)
+                FuncionarioModel currentModel = FuncionarioModel.ToModel(_funcionarioBusiness.Get(id));
+                
+                if (currentModel == null)
                     return NotFound();
 
-                return Ok(funcionario);
+                return Ok(currentModel.ToBody());
             }
             catch (Exception ex)
             {
@@ -37,18 +36,18 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(int id, Funcionario editedFuncionario)
+        public IActionResult Put(int id, FuncionarioModel editedModel)
         {
             try
             {
-                Funcionario funcionario = _funcionarioBusiness.Get(id);
+                FuncionarioModel currentModel = FuncionarioModel.ToModel(_funcionarioBusiness.Get(id));
 
-                if (funcionario == null)
+                if (currentModel == null)
                     return NotFound();
 
-                _funcionarioBusiness.Edit(funcionario, editedFuncionario);
+                _funcionarioBusiness.Edit(currentModel.ToDomain(), editedModel.ToDomain());
 
-                return Ok(funcionario);
+                return Ok(currentModel.ToBody());
             }
             catch (Exception ex)
             {
@@ -57,24 +56,24 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
         }
 
         [HttpPatch("{id}")]
-        public IActionResult Patch(int id, Funcionario editedFuncionario)
+        public IActionResult Patch(int id, FuncionarioModel editedModel)
         {
             try
             {
-                Funcionario funcionario = _funcionarioBusiness.Get(id);
+                FuncionarioModel currentModel = FuncionarioModel.ToModel(_funcionarioBusiness.Get(id));
 
-                if (funcionario == null)
+                if (currentModel == null)
                     return NotFound();
 
-                if (!editedFuncionario.ValidPassword())
+                if (!editedModel.ValidPassword())
                     return BadRequest("A senha informada não é válida.\nDeve conter 6 ou mais caracteres.");
 
-                if (editedFuncionario.SenhasIguais(editedFuncionario.Senha))
+                if (editedModel.SenhasIguais(editedModel.Senha))
                     return BadRequest("A senha informada não é válida.\nTente outra senha.");
                 
-                _funcionarioBusiness.TrocarSenha(funcionario, editedFuncionario.Senha);
+                _funcionarioBusiness.TrocarSenha(currentModel.ToDomain(), editedModel.Senha);
 
-                return Ok(funcionario);
+                return Ok(currentModel.ToBody());
             }
             catch (Exception ex)
             {
@@ -83,17 +82,17 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(Funcionario funcionario)
+        public IActionResult Post(FuncionarioModel newModel)
         {
             try
             {
-                if (funcionario != null && funcionario.IsValid())
+                if (newModel != null && newModel.IsValid())
                 {
-                    _funcionarioBusiness.Add(funcionario);
-                    return Ok(funcionario);
+                    _funcionarioBusiness.Add(newModel.ToDomain());
+                    return Ok(newModel.ToBody());
                 }
 
-                if (!funcionario.ValidPassword())
+                if (!newModel.ValidPassword())
                     return BadRequest("A senha informada não é válida.\nDeve conter 6 ou mais caracteres.");
 
                 return BadRequest("Preencha corretamente todos os campos do funcionário.");
@@ -109,15 +108,15 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
         {
             try
             {
-                Funcionario funcionario = _funcionarioBusiness.Get(id);
+                FuncionarioModel currentModel = FuncionarioModel.ToModel(_funcionarioBusiness.Get(id));
 
-                if (funcionario == null)
+                if (currentModel == null)
                     return NotFound();
 
-                if (!_funcionarioBusiness.JaRealizouAluguel(funcionario))
+                if (!_funcionarioBusiness.JaRealizouAluguel(currentModel.ToDomain()))
                 {
-                    _funcionarioBusiness.Desactive(funcionario);
-                    return Ok(funcionario);
+                    _funcionarioBusiness.Desactive(currentModel.ToDomain());
+                    return Ok(currentModel.ToBody());
                 }
 
                 return BadRequest("Não foi possível desativar este funcionário, pois ele já efetuou um ou mais aluguéis.");
