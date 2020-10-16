@@ -8,9 +8,9 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Model
     public class FuncionarioModel
     {
         private readonly IMapper _mapper;
-        public FuncionarioModel(IMapper mapper)
+        public FuncionarioModel()
         {
-            _mapper = mapper;
+            _mapper = MapConfiguration.Config();
         }
 
         public int Id { get; set; }

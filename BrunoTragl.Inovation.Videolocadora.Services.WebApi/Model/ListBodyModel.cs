@@ -6,7 +6,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Model
     public class ListBodyModel<T> where T : class
     {
         public IEnumerable<T> Data { get; set; }
-        public DateTime Consulta {
+        public DateTime Requested {
             get {
                 return DateTime.Now;
             }

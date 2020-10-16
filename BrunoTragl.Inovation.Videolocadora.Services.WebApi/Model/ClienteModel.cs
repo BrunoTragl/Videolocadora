@@ -9,9 +9,9 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Model
     public class ClienteModel
     {
         private readonly IMapper _mapper;
-        public ClienteModel(IMapper mapper)
+        public ClienteModel()
         {
-            _mapper = mapper;
+            _mapper = MapConfiguration.Config();
         }
 
         public int Id { get; set; }

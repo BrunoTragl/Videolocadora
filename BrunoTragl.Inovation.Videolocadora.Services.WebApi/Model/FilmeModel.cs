@@ -8,9 +8,9 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Model
     public class FilmeModel
     {
         private readonly IMapper _mapper;
-        public FilmeModel(IMapper mapper)
+        public FilmeModel()
         {
-            _mapper = mapper;
+            _mapper = MapConfiguration.Config();
         }
 
         public int Id { get; set; }
