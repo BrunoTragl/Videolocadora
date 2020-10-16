@@ -67,7 +67,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
                     return Ok(cliente);
                 }
 
-                return BadRequest("Preencha corretamente todos os dados do cliente.");
+                return BadRequest("Preencha corretamente todos os campos do cliente.");
             }
             catch (Exception ex)
             {

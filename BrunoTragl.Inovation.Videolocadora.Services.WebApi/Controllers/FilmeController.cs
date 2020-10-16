@@ -8,13 +8,13 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AluguelController : ControllerBase
+    public class FilmeController : ControllerBase
     {
-        private readonly IAluguelBusiness _aluguelBusiness;
+        private readonly IFilmeBusiness _filmeBusiness;
 
-        public AluguelController(IAluguelBusiness aluguelBusiness)
+        public FilmeController(IFilmeBusiness filmeBusiness)
         {
-            _aluguelBusiness = aluguelBusiness;
+            _filmeBusiness = filmeBusiness;
         }
 
         [HttpGet]
@@ -23,12 +23,12 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
         {
             try
             {
-                Aluguel aluguel = _aluguelBusiness.Get(id);
+                Filme filme = _filmeBusiness.Get(id);
 
-                if (aluguel == null)
+                if (filme == null)
                     return NotFound();
 
-                return Ok(aluguel);
+                return Ok(filme);
             }
             catch (Exception ex)
             {
@@ -37,18 +37,18 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(int id, Aluguel editedAluguel)
+        public IActionResult Put(int id, Filme editedFilme)
         {
             try
             {
-                Aluguel aluguel = _aluguelBusiness.Get(id);
+                Filme filme = _filmeBusiness.Get(id);
 
-                if (aluguel == null)
+                if (filme == null)
                     return NotFound();
 
-                _aluguelBusiness.Edit(aluguel, editedAluguel);
+                _filmeBusiness.Edit(filme, editedFilme);
 
-                return Ok(aluguel);
+                return Ok(filme);
             }
             catch (Exception ex)
             {
@@ -57,17 +57,17 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(Aluguel aluguel)
+        public IActionResult Post(Filme filme)
         {
             try
             {
-                if (aluguel != null && aluguel.IsValid())
+                if (filme != null && filme.IsValid())
                 {
-                    _aluguelBusiness.Add(aluguel);
-                    Ok(aluguel);
+                    _filmeBusiness.Add(filme);
+                    return Ok(filme);
                 }
 
-                return BadRequest("Preencha corretamente todos os campos do aluguel.");
+                return BadRequest("Preencha corretamente todos os campos do filme.");
             }
             catch (Exception ex)
             {
@@ -80,18 +80,18 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
         {
             try
             {
-                Aluguel aluguel = _aluguelBusiness.Get(id);
+                Filme filme = _filmeBusiness.Get(id);
 
-                if (aluguel == null)
+                if (filme == null)
                     return NotFound();
 
-                if (aluguel.IsValidToDesactive())
+                if (!_filmeBusiness.FilmeJaAlugado(filme))
                 {
-                    _aluguelBusiness.Desactive(aluguel);
-                    return Ok(aluguel);
+                    _filmeBusiness.Desactive(filme);
+                    return Ok(filme);
                 }
 
-                return BadRequest("Não foi possível desativar este aluguel, pois já possui valor pago ou multa.");
+                return BadRequest("Não foi possível desativar este filme, pois ele já foi utilizado anteriormente em um ou mais aluguéis.");
             }
             catch (Exception ex)
             {
