@@ -1,0 +1,66 @@
+.container-fluid {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.bg-light {
+    background-color: #1260ac !important;
+}
+
+.dropdown-menu {
+    width: 20px !important;
+    margin-top: 11px !important;
+    border-radius: 0px;
+    background-color: #1260ac!important;
+    border: 0px;
+    padding: 2px 0px;
+    border-bottom-left-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+}
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu-login {
+    width: 300px !important;
+    position: absolute !important;
+    left: -192px !important;
+    border-bottom-left-radius: 15px !important;
+    border-bottom-right-radius: 0px !important;
+}
+
+.dropdown-menu-login>input,
+.dropdown-menu-login>button {
+    margin: 10px !important;
+    width: 280px !important;
+}
+
+.dropdown-item {
+    color: white;
+}
+
+.dropdown-item:hover {
+    background-color: #1260ac !important;
+    color: yellowgreen !important;
+    border-bottom-left-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+}
+
+.navbar-brand {
+    font-size: 25px;
+    color: yellowgreen !important;
+    padding-right: 30px;
+}
+
+.nav-link {
+    color: #ccd !important;
+}
+
+.navbar {
+    padding: .5rem 40px !important;
+}
+
+.nav-item {
+    margin-left: 10px;
+}
