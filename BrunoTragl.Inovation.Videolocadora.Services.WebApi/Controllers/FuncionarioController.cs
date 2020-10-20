@@ -35,6 +35,24 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
             }
         }
 
+        [HttpPost("login")] 
+        public IActionResult Post([FromBody] LoginModel loginModel)
+        {
+            try
+            {
+                FuncionarioModel currentModel = FuncionarioModel.ToModel(_funcionarioBusiness.Get(loginModel.Login, loginModel.Senha));
+
+                if (currentModel == null)
+                    return NotFound("Login ou senha incorreto");
+
+                return Ok(currentModel.ToBody());
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
         [HttpPut("{id}")]
         public IActionResult Put(int id, FuncionarioModel editedModel)
         {

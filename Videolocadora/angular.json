@@ -29,8 +29,7 @@
                             "src/global_styles/bootstrap.navbar.css"
                         ],
                         "scripts": [
-                            "node_modules/bootstrap/dist/js/bootstrap.min.js",
-                            "src/global_scripts/bootstrap.navbar.js"
+                            "node_modules/bootstrap/dist/js/bootstrap.min.js"
                         ]
                     },
                     "configurations": {

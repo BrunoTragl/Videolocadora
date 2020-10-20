@@ -16,6 +16,9 @@
     padding: 2px 0px;
     border-bottom-left-radius: 10px !important;
     border-bottom-right-radius: 10px !important;
+    border-left-color: yellowgreen !important;
+    border-right-color: yellowgreen !important;
+    border-bottom-color: yellowgreen !important;
 }
 
 .dropdown:hover>.dropdown-menu {
@@ -58,9 +61,17 @@
 }
 
 .navbar {
-    padding: .5rem 40px !important;
+    padding: .5rem 60px !important;
 }
 
 .nav-item {
     margin-left: 10px;
+}
+
+@media screen and (max-width: 991px){
+    .dropdown-menu-login {
+        left: -5px !important;
+        top: 37px !important;
+        border-bottom-right-radius: 15px !important;
+    }
 }

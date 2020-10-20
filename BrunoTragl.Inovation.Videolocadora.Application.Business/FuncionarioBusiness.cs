@@ -65,6 +65,17 @@ namespace BrunoTragl.Inovation.Videolocadora.Application.Business
                 throw ex;
             }
         }
+        public Funcionario Get(string login, string senha)
+        {
+            try
+            {
+                return _funcionarioRepository.Get(f => f.Login == login && f.Senha == senha).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public IEnumerable<Funcionario> Get(Expression<Func<Funcionario, bool>> exp)
         {
             return _funcionarioRepository.Get(exp);

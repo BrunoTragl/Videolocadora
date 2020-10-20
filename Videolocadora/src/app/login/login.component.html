@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="quadroLogin">
+                <h1>Videolocadora</h1>
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <input type="text" formControlName="login" class="espacamento form-control" placeholder="login" />
+                    <input type="password" formControlName="senha" class="espacamento form-control" placeholder="senha" />
+                    <button type="submit" [disabled]="!loginForm.valid" class="espacamento btn btn-success">Acessar</button>
+                    <p [ngStyle]="{'display': showErrorMessage == true ? 'block' : 'none'}" >{{errorMessage}}</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

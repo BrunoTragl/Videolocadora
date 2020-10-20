@@ -1,0 +1,147 @@
+.quadroLogin {
+    border: 2px solid #125099;
+    border-radius: 2px;
+    margin: 0px 33%;
+    margin-top: 200px;
+    padding: 10px 15px;
+    background-color: #1260ac;
+}
+
+h1 {
+    color: yellowgreen !important;
+}
+
+form > p {
+    color: yellowgreen;
+}
+
+.espacamento {
+    margin: 10px 0px;
+}
+
+ 
+@media screen and (max-width: 1200px){
+    .quadroLogin {
+        margin-left: 31%;
+        margin-right: 31%;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .quadroLogin {
+        margin-left: 29%;
+        margin-right: 29%;
+    }
+}
+
+@media screen and (max-width: 980px){
+    .quadroLogin {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+}
+
+@media screen and (max-width: 766px){
+    .quadroLogin {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
+/*
+@media screen and (max-width: 1650px){
+    .quadroLogin {
+        margin: 0px 320px;
+        margin-top: 200px;
+    }
+}
+
+@media screen and (max-width: 1500px){
+    .quadroLogin {
+        margin: 0px 300px;
+        margin-top: 200px;
+    }
+}
+
+@media screen and (max-width: 1400px){
+    .quadroLogin {
+        margin: 0px 270px;
+        margin-top: 200px;
+    }
+}
+
+@media screen and (max-width: 1300px){
+    .quadroLogin {
+        margin: 0px 250px;
+        margin-top: 200px;
+    }
+}
+
+@media screen and (max-width: 1250px){
+    .quadroLogin {
+        margin: 0px 230px;
+        margin-top: 200px;
+    }
+}
+
+@media screen and (max-width: 1170px){
+    .quadroLogin {
+        margin: 0px 220px;
+        margin-top: 200px;
+    }
+}
+
+@media screen and (max-width: 1100px){
+    .quadroLogin {
+        margin: 0px 200px;
+        margin-top: 200px;
+    }
+}
+
+@media screen and (max-width: 1060px){
+    .quadroLogin {
+        margin: 0px 170px;
+        margin-top: 200px;
+    }
+}
+
+@media screen and (max-width: 950px){
+    .quadroLogin {
+        margin: 0px 150px;
+        margin-top: 200px;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .quadroLogin {
+        margin: 0px 80px;
+        margin-top: 200px;
+    }
+}
+
+@media screen and (max-width: 750px){
+    .quadroLogin {
+        margin: 0px 80px;
+        margin-top: 200px;
+    }
+}
+
+@media screen and (max-width: 700px){
+    .quadroLogin {
+        margin: 0px 50px;
+        margin-top: 200px;
+    }
+}
+
+@media screen and (max-width: 650px){
+    .quadroLogin {
+        margin: 0px 40px;
+        margin-top: 200px;
+    }
+}
+
+@media screen and (max-width: 580px){
+    .quadroLogin {
+        margin: 0px 50px;
+        margin-top: 200px;
+    }
+} */

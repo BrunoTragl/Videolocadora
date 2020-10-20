@@ -10,6 +10,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Application.Business.Interfaces
         void Add(Funcionario funcionario);
         void Edit(Funcionario actualFuncionario, Funcionario editedFuncionario);
         Funcionario Get(int id);
+        Funcionario Get(string login, string senha);
         IEnumerable<Funcionario> Get(Expression<Func<Funcionario, bool>> exp);
         bool JaRealizouAluguel(Funcionario funcionario);
         void Desactive(Funcionario funcionario);
