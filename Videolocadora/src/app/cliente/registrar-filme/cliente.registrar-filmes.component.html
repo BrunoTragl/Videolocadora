@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <h1>Alugar Filme | Cliente {{cliente.nome}}</h1>
+            <h1>Alugar Filmes | Cliente {{cliente.nome}}</h1>
         </div>
     </div>
     <div class="row">
@@ -12,10 +12,8 @@
             <div *ngIf="filmesParaAlugar.length > 0" class="quadro-estatico">
                 <p *ngFor="let filmeAlugar of filmesParaAlugar">{{filmeAlugar.titulo}} | R$ {{_tratamentoDados.getMoeda(filmeAlugar.valor)}} <i class="fas fa-times pointer" (click)="removeFilme(filmeAlugar)"></i></p>
             </div>
-            <button *ngIf="filmesParaAlugar.length > 0" type="button" class="btn btn-success right">Finalizar</button>
+            <button *ngIf="filmesParaAlugar.length > 0" type="button" class="btn btn-primary right">Continuar</button>
         </div>
     </div>
-    <div class="quadro-form">
-        <app-filme-exibir-para-aluguel [filmesSelecionados]="filmesParaAlugar" (listFilmesParaAlugar)="getFilmesParaAlugar($event)"></app-filme-exibir-para-aluguel>
-    </div>
+    <app-filme-exibir-para-aluguel [filmesSelecionados]="filmesParaAlugar" (listFilmesParaAlugar)="getFilmesParaAlugar($event)"></app-filme-exibir-para-aluguel>
 </div>

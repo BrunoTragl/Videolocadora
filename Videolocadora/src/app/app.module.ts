@@ -30,6 +30,7 @@ import { ClienteService } from './services/cliente.services';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { FilmeExibirComponent } from './filme/exibir-filmes/filme.exibir-para-aluguel.component';
 import { ClienteRegistrarFilmesComponent } from './cliente/registrar-filme/cliente.registrar-filmes.component';
+import { RegistrarFilmeService } from './services/registrar-filme.services';
 
 const maskConfigFunction: () => Partial<IConfig> = () => {
   return {
@@ -73,7 +74,8 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     TratamentoDadosService,
     FilmeService,
     ClienteService,
-    ApiUrlService
+    ApiUrlService,
+    RegistrarFilmeService
   ],
   bootstrap: [AppComponent]
 })

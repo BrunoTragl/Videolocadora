@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Cliente } from 'src/app/models/cliente.model';
 import { Filme } from 'src/app/models/filme.model';
 import { ClienteService } from 'src/app/services/cliente.services';
+import { RegistrarFilmeService } from 'src/app/services/registrar-filme.services';
 import { TratamentoDadosService } from 'src/app/services/tratamento.dados.services';
 
 @Component({
@@ -32,7 +33,7 @@ export class ClienteRegistrarFilmesComponent implements OnInit {  ////PAI
               private _aluguel: ClienteService,
               private _formBulider: FormBuilder,
               public _tratamentoDados: TratamentoDadosService,
-              private _element: ElementRef) {
+              private _registrarFilmes: RegistrarFilmeService) {
       this.id = _activatedRoute.snapshot.params.id;
   }
 
@@ -43,6 +44,7 @@ export class ClienteRegistrarFilmesComponent implements OnInit {  ////PAI
   private getCliente() {
     this._clienteService.getById(this.id.toString()).subscribe((ret) => {
         this.cliente = ret.data;
+        this.getFilmesAtLocalStorage();
     },
     (err) => {
       console.log(err);
@@ -62,6 +64,7 @@ export class ClienteRegistrarFilmesComponent implements OnInit {  ////PAI
       this.filmesParaAlugar.push(filme);
       this.valorTotalAluguel += filme.valor;
     });
+    this._registrarFilmes.set(filmes, this.cliente);
   }
 
   removeFilme(filme: Filme) {
@@ -75,5 +78,22 @@ export class ClienteRegistrarFilmesComponent implements OnInit {  ////PAI
       }
     });
     this.filmesParaAlugar = filmes;
+    this._registrarFilmes.set(filmes, this.cliente);
+  }
+
+  getFilmesAtLocalStorage(){
+    if (!this.cliente) {
+      return;
+    }
+
+    let filmesStorage = this._registrarFilmes.get(this.cliente);
+    if (filmesStorage) {
+      this.valorTotalAluguel = 0;
+      this.filmesParaAlugar = [];
+      filmesStorage.forEach((filme) => {
+        this.filmesParaAlugar.push(filme);
+        this.valorTotalAluguel += filme.valor;
+      });
+    }
   }
 }

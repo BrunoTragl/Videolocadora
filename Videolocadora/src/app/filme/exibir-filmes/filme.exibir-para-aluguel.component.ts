@@ -65,7 +65,7 @@ export class FilmeExibirComponent implements OnInit { ////FILHO
   }
 
   seachFilmes(){
-      this.configSearch();
+    this.configSearch();
     let titulo: string = ' ';
     if(this.buscarFilmeForm.value.titulo !== ''){
       titulo = this.buscarFilmeForm.value.titulo;
