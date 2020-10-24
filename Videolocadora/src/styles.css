@@ -8,16 +8,85 @@ body {
     color: yellowgreen !important;
 }
 
-p {
+p, label {
     font-family: 'Roboto', sans-serif;
+    color: #495057;
 }
 
-a, h1 {
+a, h1, h2, h3, h4, h5 {
     font-family: 'Roboto Condensed', sans-serif;
 }
 
+.pointer {
+    cursor: pointer;
+}
 
-/*font-family: 'Roboto Condensed', sans-serif;*/
+.espacamento-esquerda {
+    margin-left: 15px;
+}
 
+textarea {
+    resize: none;
+}
 
-/*font-family: 'Roboto', sans-serif;*/
+.dimdim {
+    position: absolute;
+    top: 40px;
+    left: 25px;
+    z-index: 100;
+    font-size: 1rem;
+    color: #495057;
+}
+
+.valor {
+    padding-left: 30px;
+}
+
+footer {
+    background-color: #1260ac;
+    height: 60px;
+}
+
+footer > p {
+    padding-top: 20px;
+    color: yellowgreen;
+    font-size: 12.5px;
+}
+
+footer.fixed {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.bold-suave {
+    font-weight: 500;
+}
+
+.bold-medio {
+    font-weight: 600;
+}
+
+.bold-forte {
+    font-weight: 900;
+}
+
+.white {
+    color: white;
+}
+
+.black {
+    color: #222;
+}
+
+.red {
+    color: #aa2020;
+}
+
+.blue {
+    color: #2020c9;
+}
+
+.desativado {
+    color: #993030;
+}

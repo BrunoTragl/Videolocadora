@@ -47,6 +47,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Application.Business
                 actualFilme.Descricao = editedFilme.Descricao;
                 actualFilme.Titulo = editedFilme.Titulo;
                 actualFilme.Valor = editedFilme.Valor;
+                actualFilme.UrlImagem = editedFilme.UrlImagem;
                 _filmeRepository.Edit(actualFilme);
             }
             catch (Exception ex)
@@ -79,6 +80,29 @@ namespace BrunoTragl.Inovation.Videolocadora.Application.Business
         public IEnumerable<Filme> Get(Expression<Func<Filme, bool>> exp)
         {
             return _filmeRepository.Get(exp);
+        }
+        public IEnumerable<Filme> Pagination(Expression<Func<Filme, bool>> exp, int skip, int take)
+        {
+            try
+            {
+                return _filmeRepository.Pagination(exp, skip, take);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public IEnumerable<Filme> PaginationUnselectedFilmes(Expression<Func<Filme, bool>> exp, int skip, int take, IEnumerable<Filme> filmesSelecionados)
+        {
+            try
+            {
+                return _filmeRepository.PaginationUnselectedFilmes(exp, skip, take, filmesSelecionados);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

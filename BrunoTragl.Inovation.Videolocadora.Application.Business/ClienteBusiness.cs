@@ -28,6 +28,18 @@ namespace BrunoTragl.Inovation.Videolocadora.Application.Business
                 throw ex;
             }
         }
+        public void Active(Cliente cliente)
+        {
+            try
+            {
+                cliente.Ativo = true;
+                _clienteRepository.Edit(cliente);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public void Desactive(Cliente cliente)
         {
             try
@@ -44,6 +56,9 @@ namespace BrunoTragl.Inovation.Videolocadora.Application.Business
         {
             try
             {
+                actualCliente.Nome = editedCliente.Nome;
+                actualCliente.Sobrenome = editedCliente.Sobrenome;
+                actualCliente.Telefone = editedCliente.Telefone;
                 actualCliente.Email = editedCliente.Email;
                 actualCliente.Nascimento = editedCliente.Nascimento;
                 actualCliente.Telefone = editedCliente.Telefone;

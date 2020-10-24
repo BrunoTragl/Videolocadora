@@ -2,9 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ApiUrl } from './api-url'
+import { ApiUrlService } from './api-url.service'
 
-import { User } from '../models/user.model';
 import { Funcionario } from '../models/funcionario.model';
 import { Data } from '../models/data.model';
 
@@ -15,12 +14,12 @@ import { Data } from '../models/data.model';
 export class AuthenticationService {
     private currentUserSubject: BehaviorSubject<Data<Funcionario>>;
     public currentUser: Observable<Data<Funcionario>>;
-    private apiUrl: ApiUrl;
+    private apiUrl: ApiUrlService;
 
     constructor(private http: HttpClient) {
         this.currentUserSubject = new BehaviorSubject<Data<Funcionario>>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
-        this.apiUrl = new ApiUrl();
+        this.apiUrl = new ApiUrlService();
     }
 
     public get currentUserValue(): Data<Funcionario> {

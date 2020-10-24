@@ -32,7 +32,6 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Repository
         {
             try
             {
-                _videolocadoraContext.Funcionario.Attach(funcionario);
                 _videolocadoraContext.Funcionario.Update(funcionario).State = EntityState.Modified;
                 _videolocadoraContext.SaveChanges();
             }
@@ -54,7 +53,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Repository
         }
         public IEnumerable<Funcionario> Get(Expression<Func<Funcionario, bool>> exp)
         {
-            return _videolocadoraContext.Funcionario.Where(exp);
+            return _videolocadoraContext.Funcionario.Where(exp).OrderBy(p => p.Nome);
         }
     }
 }

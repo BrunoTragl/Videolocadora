@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid nav-espacamento">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Videolocadora</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,8 +11,8 @@
                         Clientes
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" routerLink="/clientes/novo" routerLinkActive="selected">Novo</a>
                         <a class="dropdown-item" routerLink="/clientes/buscar" routerLinkActive="selected">Buscar</a>
+                        <a class="dropdown-item" routerLink="/clientes/novo" routerLinkActive="selected">Novo</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -20,9 +20,17 @@
                         Filmes
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" routerLink="/filmes/novo" routerLinkActive="selected">Novo</a>
-                        <a class="dropdown-item" routerLink="/filmes/alugados" routerLinkActive="selected">Alugados</a>
                         <a class="dropdown-item" routerLink="/filmes/buscar" routerLinkActive="selected">Buscar</a>
+                        <a class="dropdown-item" routerLink="/filmes/novo" routerLinkActive="selected">Novo</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a routerLinkActive="selected" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Relatórios
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" routerLink="/filmes/buscar" routerLinkActive="selected">Aluguéis Ativos</a>
+                        <a class="dropdown-item" routerLink="/filmes/novo" routerLinkActive="selected">Cliente Inadimplentes</a>
                     </div>
                 </li>
             </ul>
@@ -39,20 +47,3 @@
         </div>
     </nav>
 </div>
-
-
-
-<!-- <ul class="navbar-nav ml-auto">
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Login
-        </a>
-        <div class="dropdown-menu dropdown-menu-login" aria-labelledby="navbarDropdownMenuLink">
-            <input type="text" class="form-control" placeholder="Login">
-            <input type="password" class="form-control" placeholder="Senha">
-            <button type="button" class="form-control btn btn-success">Continuar</button>
-            <button type="button" class="form-control btn btn-warning" routerLink="/login/esqueci">Esqueci minha senha</button>
-            <button type="button" class="form-control btn btn-secondary" routerLink="/login/cadastro">Cadastre-se</button>
-        </div>
-    </li>
-</ul> -->

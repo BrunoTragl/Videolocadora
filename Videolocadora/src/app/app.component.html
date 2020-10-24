@@ -1,1 +1,6 @@
-<router-outlet></router-outlet>
+<div (resized)="onResized($event)">
+    <router-outlet></router-outlet>
+</div>
+<footer id="footer" [class]="position">
+    <p class="text-center">Videolocadora &copy; 2020</p>
+</footer>

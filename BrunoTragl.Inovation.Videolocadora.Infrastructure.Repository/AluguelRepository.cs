@@ -73,7 +73,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Repository
         {
             try
             {
-                return _videolocadoraContext.Aluguel.Include(i => i.Cliente).Include(i => i.Filme).Include(i => i.Funcionario).Where(exp);
+                return _videolocadoraContext.Aluguel.Include(i => i.Cliente).Include(i => i.Filme).Include(i => i.Funcionario).Where(exp).OrderBy(p => p.Cadastro);
             }
             catch (Exception ex)
             {

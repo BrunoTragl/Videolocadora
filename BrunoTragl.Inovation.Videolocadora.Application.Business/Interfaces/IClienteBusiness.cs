@@ -14,5 +14,6 @@ namespace BrunoTragl.Inovation.Videolocadora.Application.Business.Interfaces
         IEnumerable<Cliente> Pagination(Expression<Func<Cliente, bool>> exp, int skip, int take);
         bool PossuiPendencias(Cliente cliente);
         void Desactive(Cliente cliente);
+        void Active(Cliente cliente);
     }
 }

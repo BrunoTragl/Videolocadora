@@ -1,2 +1,63 @@
 <app-nav></app-nav>
-<h1>TESTANDO FUNCIONÁRIO</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h1>Novo Funcionário</h1>
+        </div>
+    </div>
+    <div class="quadro-form">
+        <form [formGroup]="funcionarioForm" (ngSubmit)="onSubmit()">
+            <div class="row row-espacamento">
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                    <label for="login">login</label>
+                    <input type="text" class="form-control" formControlName="login" name="login" />
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                    <p class="right" id="cadastro"></p>
+                </div>
+            </div>
+            <div class="row row-espacamento">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <label for="nome">nome</label>
+                    <input type="text" formControlName="nome" class="form-control" name="nome" />
+                </div>
+            </div>
+            <div class="row row-espacamento">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <label for="sobrenome">sobrenome</label>
+                    <input type="text" formControlName="sobrenome" class="form-control" name="sobrenome" />
+                </div>
+            </div>
+            <div class="row row-espacamento">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <label for="email">e-mail</label>
+                    <input type="text" formControlName="email" class="form-control" name="email" />
+                </div>
+            </div>
+            <div class="row row-espacamento">
+                <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
+                    <label for="senha">senha</label>
+                    <input type="password" formControlName="senha" class="form-control" name="senha" />
+                </div>
+            </div>
+            <div class="row row-espacamento">
+                <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
+                    <label for="confirmaSenha">confirma senha</label>
+                    <input type="password" formControlName="confirmaSenha" class="form-control" name="confirmaSenha" />
+                </div>
+            </div>
+            <div class="row row-espacamento">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+                    <button type="submit" class="btn btn-success left" [disabled]="!funcionarioForm.valid">Salvar</button>
+                    <button type="button" class="btn btn-warning left espacamento-esquerda" routerLink="/funcionario/home">Voltar</button>
+                </div>
+            </div>
+            <div class="row row-espacamento">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <p [ngStyle]="{'display': exibirMensagemRetorno == true ? 'block' : 'none'}" >{{mensagemRetorno}}</p>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

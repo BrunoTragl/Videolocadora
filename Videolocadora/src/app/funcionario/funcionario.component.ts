@@ -1,9 +1,11 @@
 
 import { Component, OnInit } from '@angular/core';
-import { FuncionarioService } from 'src/app/services/funcionario.services';
-import { FormBuilder, Validators } from '@angular/forms';  
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';  
 import { Funcionario } from 'src/app/models/funcionario.model';
-import { Data } from 'src/app/models/data.model';;
+import { AuthenticationService } from '../services/authentication.service';
+import { TratamentoDadosService } from '../services/tratamento.dados.services';
+import { FuncionarioService } from '../services/funcionario.services';
+;
 
 @Component({
   selector: 'app-funcionario',
@@ -12,23 +14,50 @@ import { Data } from 'src/app/models/data.model';;
 })
 export class FuncionarioComponent implements OnInit {
 
-  funcionarioForm: any;
-  funcionario: Data<Funcionario>;
-  constructor(private formBulider: FormBuilder, private _funcionarioService: FuncionarioService) { }
+  funcionarioForm: FormGroup;
+  funcionario: Funcionario;
+  public exibirMensagemRetorno: boolean = false;
+  public mensagemRetorno: string = '';
+
+  constructor(private formBulider: FormBuilder, 
+              private _authenticationService: AuthenticationService, 
+              private _tratamentoDados: TratamentoDadosService,
+              private _funcionarioService: FuncionarioService) { }
 
   ngOnInit() {
-    this.funcionarioForm = this.formBulider.group({  
-      Nome: ['', [Validators.required]],  
-      Sobrenome: ['', [Validators.required]]
-    });
-
     this.getFuncionario();
   }
 
   getFuncionario(){
-    this._funcionarioService.getFuncionarioById("1").subscribe(observableFuncionario => {
-      this.funcionario = observableFuncionario;
+    this.funcionario = this._authenticationService.currentUserValue.data
+    this.funcionarioForm = this.formBulider.group({  
+      login: [this.funcionario.login],
+      nome: [this.funcionario.nome, [Validators.required]],  
+      sobrenome: [this.funcionario.sobrenome, [Validators.required]],
+      email: [this.funcionario.email, [Validators.required, Validators.email]]
     });
-    
+
+    let cadastro:HTMLElement = document.querySelector('#cadastro');
+    let dataCadastro = this._tratamentoDados.getDataString(this.funcionario.cadastro);
+    cadastro.innerText = `desde ${dataCadastro}`;
+  }
+
+  onSubmit(){
+    this.exibirMensagemRetorno = false;
+    let editedFuncionario: Funcionario = this.funcionario;
+    editedFuncionario.nome = this.funcionarioForm.value.nome;
+    editedFuncionario.sobrenome = this.funcionarioForm.value.sobrenome;
+    editedFuncionario.email = this.funcionarioForm.value.email;
+
+    this._funcionarioService.edit(this.funcionario.id.toString(), editedFuncionario)
+          .subscribe(() => {
+            this.mensagemRetorno = 'Dados salvos com sucesso!';
+            this.exibirMensagemRetorno = true;
+          },
+          (err) => {
+            console.log(err);
+            this.mensagemRetorno = 'Ocorreu um erro, não foi possível salvar as alterações!';
+            this.exibirMensagemRetorno = true;
+          });
   }
 }

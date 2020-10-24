@@ -1,0 +1,13 @@
+.mais-clientes {
+    margin-bottom: 15px;
+}
+
+.espacamento-altura {
+    height: 50px;
+}
+
+.cliente-desativado {
+    position: absolute;
+    top: 3px;
+    left: 21px;
+}

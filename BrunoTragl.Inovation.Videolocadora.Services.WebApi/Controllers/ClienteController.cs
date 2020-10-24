@@ -18,8 +18,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
             _clienteBusiness = clienteBusiness;
         }
 
-        [HttpGet]
-        [Route("{id}")]
+        [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
             try
@@ -37,8 +36,8 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
             }
         }
 
-        [HttpGet]
-        public IActionResult Get([FromBody] PaginationModel pagination)
+        [HttpPost("list")]
+        public IActionResult Post([FromBody] PaginationClienteModel pagination)
         {
             try
             {
@@ -65,14 +64,14 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
         {
             try
             {
-                ClienteModel currentModel = ClienteModel.ToModel(_clienteBusiness.Get(id));
+                Cliente currentModel = _clienteBusiness.Get(id);
 
                 if (currentModel == null)
                     return NotFound();
 
-                _clienteBusiness.Edit(currentModel.ToDomain(), editedModel.ToDomain());
+                _clienteBusiness.Edit(currentModel, editedModel.ToDomain());
 
-                return Ok(currentModel.ToBody());
+                return Ok(editedModel.ToBody());
             }
             catch (Exception ex)
             {
@@ -87,6 +86,8 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
             {
                 if (newModel != null && newModel.IsValid())
                 {
+                    newModel.Cadastro = DateTime.Now;
+                    newModel.Ativo = true;
                     _clienteBusiness.Add(newModel.ToDomain());
                     return Ok(newModel.ToBody());
                 }
@@ -99,20 +100,39 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
             }
         }
 
+        [HttpPatch("{id}")]
+        public IActionResult Patch(int id)
+        {
+            try
+            {
+                Cliente currentModel = _clienteBusiness.Get(id);
+
+                if (currentModel == null)
+                    return NotFound();
+
+                _clienteBusiness.Active(currentModel);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             try
             {
-                ClienteModel currentModel = ClienteModel.ToModel(_clienteBusiness.Get(id));
+                Cliente currentModel = _clienteBusiness.Get(id);
 
                 if (currentModel == null)
                     return NotFound();
 
-                if (!_clienteBusiness.PossuiPendencias(currentModel.ToDomain()))
+                if (!_clienteBusiness.PossuiPendencias(currentModel))
                 {
-                    _clienteBusiness.Desactive(currentModel.ToDomain());
-                    return Ok(currentModel.ToBody());
+                    _clienteBusiness.Desactive(currentModel);
+                    return Ok();
                 }
 
                 return BadRequest("Não foi possível desativar este aluguel, pois já possui valor pago ou multa.");

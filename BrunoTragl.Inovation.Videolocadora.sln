@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrunoTragl.Inovation.Videol
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrunoTragl.Inovation.Videolocadora.Services.WebApi", "BrunoTragl.Inovation.Videolocadora.Services.WebApi\BrunoTragl.Inovation.Videolocadora.Services.WebApi.csproj", "{F34E5886-BDBC-4ED9-BA6D-6A7033510270}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrunoTragl.Inovation.Videolocadora.Infrastructure.Data", "BrunoTragl.Inovation.Videolocadora.Infrastructure.Data\BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.csproj", "{8C68F9FB-899E-4B01-A433-23B04DA6AFF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrunoTragl.Inovation.Videolocadora.Infrastructure.Data", "BrunoTragl.Inovation.Videolocadora.Infrastructure.Data\BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.csproj", "{9028B8AF-4730-4BFE-BB99-2999644CE64A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,10 +43,10 @@ Global
 		{F34E5886-BDBC-4ED9-BA6D-6A7033510270}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F34E5886-BDBC-4ED9-BA6D-6A7033510270}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F34E5886-BDBC-4ED9-BA6D-6A7033510270}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8C68F9FB-899E-4B01-A433-23B04DA6AFF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8C68F9FB-899E-4B01-A433-23B04DA6AFF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8C68F9FB-899E-4B01-A433-23B04DA6AFF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8C68F9FB-899E-4B01-A433-23B04DA6AFF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9028B8AF-4730-4BFE-BB99-2999644CE64A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9028B8AF-4730-4BFE-BB99-2999644CE64A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9028B8AF-4730-4BFE-BB99-2999644CE64A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9028B8AF-4730-4BFE-BB99-2999644CE64A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,7 +56,7 @@ Global
 		{7DC1BEA9-B502-4EB7-964A-DD8AE1743A07} = {0E19A6AE-AB1C-4AB9-ABB8-E4612A10160C}
 		{4C51FFA3-CC04-475A-BBA2-1EC79E1BB146} = {948D40E5-F3CF-40E9-B31B-869579967791}
 		{F34E5886-BDBC-4ED9-BA6D-6A7033510270} = {6CBB3578-6537-4F1F-8902-09B243BF752D}
-		{8C68F9FB-899E-4B01-A433-23B04DA6AFF3} = {0E19A6AE-AB1C-4AB9-ABB8-E4612A10160C}
+		{9028B8AF-4730-4BFE-BB99-2999644CE64A} = {0E19A6AE-AB1C-4AB9-ABB8-E4612A10160C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {032D9D4E-6CF1-4DBE-A8F7-2F2CB9F23626}

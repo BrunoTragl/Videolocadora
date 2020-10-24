@@ -1,5 +1,5 @@
 
-export class ApiUrl {
+export class ApiUrlService {
     
     public funcionario: string;
     public login: string;

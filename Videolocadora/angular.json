@@ -26,10 +26,12 @@
                         "styles": [
                             "node_modules/bootstrap/dist/css/bootstrap.min.css",
                             "src/styles.css",
-                            "src/global_styles/bootstrap.navbar.css"
+                            "src/global_styles/bootstrap.navbar.css",
+                            "src/global_styles/quadros.css"
                         ],
                         "scripts": [
-                            "node_modules/bootstrap/dist/js/bootstrap.min.js"
+                            "node_modules/bootstrap/dist/js/bootstrap.min.js",
+                            "src/global_scripts/window.resize.js"
                         ]
                     },
                     "configurations": {

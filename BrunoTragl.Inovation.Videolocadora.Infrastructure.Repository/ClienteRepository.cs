@@ -54,13 +54,13 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Repository
         }
         public IEnumerable<Cliente> Get(Expression<Func<Cliente, bool>> exp)
         {
-            return _videolocadoraContext.Cliente.Where(exp);
+            return _videolocadoraContext.Cliente.Where(exp).OrderBy(p => p.Nome);
         }
         public IEnumerable<Cliente> Pagination(Expression<Func<Cliente, bool>> exp, int skip, int take)
         {
             try
             {
-                return _videolocadoraContext.Cliente.Where(exp).Skip(skip).Take(take);
+                return _videolocadoraContext.Cliente.Where(exp).OrderBy(p => p.Nome).Skip(skip).Take(take);
             }
             catch (Exception ex)
             {

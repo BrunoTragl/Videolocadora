@@ -54,7 +54,32 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Repository
         }
         public IEnumerable<Filme> Get(Expression<Func<Filme, bool>> exp)
         {
-            return _videolocadoraContext.Filme.Where(exp);
+            return _videolocadoraContext.Filme.Where(exp).OrderBy(p => p.Titulo);
+        }
+        public IEnumerable<Filme> Pagination(Expression<Func<Filme, bool>> exp, int skip, int take)
+        {
+            try
+            {
+                return _videolocadoraContext.Filme.Where(exp).OrderBy(p => p.Titulo).Skip(skip).Take(take);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public IEnumerable<Filme> PaginationUnselectedFilmes(Expression<Func<Filme, bool>> exp, int skip, int take, IEnumerable<Filme> filmesSelecionados)
+        {
+            try
+            {
+                IEnumerable<Filme> filmes = _videolocadoraContext.Filme.Where(exp).OrderBy(p => p.Titulo);
+                filmes = filmes.Where(f => !filmesSelecionados.Any(fs => fs.Id == f.Id));
+                return filmes.Skip(skip).Take(take);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

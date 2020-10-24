@@ -9,6 +9,8 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Repository.Interface
     {
         Filme Get(int id);
         IEnumerable<Filme> Get(Expression<Func<Filme, bool>> exp);
+        IEnumerable<Filme> Pagination(Expression<Func<Filme, bool>> exp, int skip, int take);
+        IEnumerable<Filme> PaginationUnselectedFilmes(Expression<Func<Filme, bool>> exp, int skip, int take, IEnumerable<Filme> filmesSelecionados);
         void Add(Filme filme);
         void Edit(Filme filme);
     }

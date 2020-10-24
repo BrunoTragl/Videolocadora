@@ -2,6 +2,7 @@
 using BrunoTragl.Inovation.Videolocadora.Domain.Model;
 using BrunoTragl.Inovation.Videolocadora.Services.WebApi.Map;
 using System;
+using System.Collections.Generic;
 
 namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Model
 {
@@ -17,6 +18,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Model
         public string Titulo { get; set; }
         public string Descricao { get; set; }
         public decimal Valor { get; set; }
+        public string UrlImagem { get; set; }
         public DateTime Cadastro { get; set; }
         public AluguelModel Aluguel { get; set; }
         public bool Ativo { get; set; }
@@ -30,6 +32,38 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Model
 
                 IMapper mapper = MapConfiguration.Config();
                 return mapper.Map<FilmeModel>(filme);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static IEnumerable<FilmeModel> ToListModel(IEnumerable<Filme> filmes)
+        {
+            try
+            {
+                if (filmes == null)
+                    return null;
+
+                IMapper mapper = MapConfiguration.Config();
+                return mapper.Map<IEnumerable<FilmeModel>>(filmes);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static IEnumerable<Filme> ToListDomain(IEnumerable<FilmeModel> filmes)
+        {
+            try
+            {
+                if (filmes == null)
+                    return null;
+
+                IMapper mapper = MapConfiguration.Config();
+                return mapper.Map<IEnumerable<Filme>>(filmes);
             }
             catch (Exception ex)
             {

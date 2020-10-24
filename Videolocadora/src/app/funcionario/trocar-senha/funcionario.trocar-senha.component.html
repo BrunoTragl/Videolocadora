@@ -1,0 +1,43 @@
+<app-nav></app-nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h1>Trocar Senha</h1>
+        </div>
+    </div>
+
+    <div class="quadro-form">
+        <form [formGroup]="trocaSenhaForm" (ngSubmit)="onSubmit()">
+            <div class="row row-espacamento">
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                    <label for="senhaAtual">senha atual</label>
+                    <input type="password" class="form-control" formControlName="senhaAtual" name="senhaAtual" />
+                </div>
+            </div>
+            <div class="row row-espacamento">
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                    <label for="novaSenha">nova senha</label>
+                    <input type="password" formControlName="novaSenha" class="form-control" name="novaSenha" />
+                </div>
+            </div>
+            <div class="row row-espacamento">
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                    <label for="confirmaSenha">confirma senha</label>
+                    <input type="password" formControlName="confirmaSenha" class="form-control" name="confirmaSenha" />
+                </div>
+            </div>
+            <div class="row row-espacamento">
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                    <button type="submit" class="btn btn-success left" [disabled]="!trocaSenhaForm.valid">Salvar</button>
+                    <button type="button" class="btn btn-warning right" routerLink="/funcionario/home">Voltar</button>
+                </div>
+            </div>
+            <div class="row row-espacamento">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <p [ngStyle]="{'display': exibirMensagemRetorno == true ? 'block' : 'none'}" >{{mensagemRetorno}}</p>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

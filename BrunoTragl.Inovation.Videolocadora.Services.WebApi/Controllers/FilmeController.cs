@@ -1,7 +1,9 @@
 ﻿using BrunoTragl.Inovation.Videolocadora.Application.Business.Interfaces;
+using BrunoTragl.Inovation.Videolocadora.Domain.Model;
 using BrunoTragl.Inovation.Videolocadora.Services.WebApi.Model;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 
 namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
 {
@@ -35,19 +37,68 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("list")]
+        public IActionResult Post([FromBody] PaginationFilmeModel paginationModel)
+        {
+            try
+            {
+                if (!paginationModel.IsValid())
+                    return BadRequest("Informe corretamente os campos de pesquisa.");
+
+                IEnumerable<FilmeModel> listFilmeModel = FilmeModel.ToListModel(_filmeBusiness.Pagination(paginationModel.Search(),
+                                                                                       paginationModel.Skip,
+                                                                                       paginationModel.Take));
+
+                if (listFilmeModel == null)
+                    return NotFound();
+
+                return Ok(ListBodyModel<FilmeModel>.ToBodyList(listFilmeModel));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("unselected")]
+        public IActionResult Post([FromBody] PaginationUnselectedFilmeModel paginationModel)
+        {
+            try
+            {
+                if (!paginationModel.IsValid())
+                    return BadRequest("Informe corretamente os campos de pesquisa.");
+
+                IEnumerable<FilmeModel> listFilmeModel = FilmeModel.ToListModel(_filmeBusiness.PaginationUnselectedFilmes(paginationModel.Search(),
+                                                                                       paginationModel.Skip,
+                                                                                       paginationModel.Take,
+                                                                                       FilmeModel.ToListDomain(paginationModel.filmesSelecionados)));
+
+                if (listFilmeModel == null)
+                    return NotFound();
+
+                return Ok(ListBodyModel<FilmeModel>.ToBodyList(listFilmeModel));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
         [HttpPut("{id}")]
         public IActionResult Put(int id, FilmeModel editedModel)
         {
             try
             {
-                FilmeModel currentModel = FilmeModel.ToModel(_filmeBusiness.Get(id));
+                Filme currentModel = _filmeBusiness.Get(id);
 
                 if (currentModel == null)
                     return NotFound();
 
-                _filmeBusiness.Edit(currentModel.ToDomain(), editedModel.ToDomain());
+                _filmeBusiness.Edit(currentModel, editedModel.ToDomain());
 
-                return Ok(currentModel.ToBody());
+                return Ok(editedModel.ToBody());
             }
             catch (Exception ex)
             {
@@ -62,6 +113,8 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
             {
                 if (newModel != null && newModel.IsValid())
                 {
+                    newModel.Cadastro = DateTime.Now;
+                    newModel.Ativo = true;
                     _filmeBusiness.Add(newModel.ToDomain());
                     return Ok(newModel.ToBody());
                 }

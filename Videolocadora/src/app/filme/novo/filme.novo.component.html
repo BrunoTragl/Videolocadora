@@ -1,2 +1,51 @@
 <app-nav></app-nav>
-<h1>TESTANDO FILME</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h1>Novo Filme</h1>
+        </div>
+    </div>
+    <div class="quadro-form">
+        <form [formGroup]="filmeForm" (ngSubmit)="onSubmit()">
+            <div class="row row-espacamento">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <label for="titulo">título</label>
+                    <input type="text" class="form-control" formControlName="titulo" name="titulo" />
+                </div>
+            </div>
+            <div class="row row-espacamento">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <label for="descricao">descrição</label>
+                    <textarea type="text" rows="5" formControlName="descricao" class="form-control" name="descricao"></textarea>
+                </div>
+            </div>
+            <div class="row row-espacamento">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <label for="urlImagem">url da capa do filme (imagem da Internet - 360x450)</label>
+                    <input type="text" class="form-control" formControlName="urlImagem" name="urlImagem" />
+                    <br>
+                    <img [src]="filmeForm.value.urlImagem" width="120" />
+                </div>
+            </div>
+            <div class="row row-espacamento">
+                <div class="col-xs-12 col-sm-5 col-md-3 col-lg-3">
+                    <label for="valor">valor</label>
+                    <input type="text" formControlName="valor" class="form-control valor" name="valor" />
+                    <div class="dimdim">R$</div>
+                </div>
+            </div>
+            <div class="row row-espacamento">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+                    <button type="submit" class="btn btn-success left" [disabled]="!filmeForm.valid">Salvar</button>
+                    <button type="button" class="btn btn-warning left espacamento-esquerda" routerLink="/filmes/buscar">Voltar</button>
+                </div>
+            </div>
+            <div class="row row-espacamento">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <p [ngStyle]="{'display': exibirMensagemRetorno == true ? 'block' : 'none'}" >{{mensagemRetorno}}</p>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

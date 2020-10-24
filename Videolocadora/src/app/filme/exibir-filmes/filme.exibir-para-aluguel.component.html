@@ -1,0 +1,29 @@
+<div class="quadro-form">
+    <form [formGroup]="buscarFilmeForm">
+        <div class="row row-espacamento">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <label for="titulo">contém no título</label>
+                <input type="text" (change)="seachFilmes()" class="form-control" formControlName="titulo"
+                    name="titulo" />
+            </div>
+        </div>
+        <div class="row row-espacamento">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <p [ngStyle]="{'display': exibirMensagemRetorno == true ? 'block' : 'none'}">{{mensagemRetorno}}</p>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="row">
+    <div *ngFor="let filme of filmes" class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+        <div (click)="enterFilme(filme.id)" class="quadro-selecionavel">
+            <h4 class="text-center titulo-com-altura-fixa">{{filme.titulo}}</h4>
+            <img [src]="filme.urlImagem" width="100%" />
+            <p class="text-left descricao-tres-linhas">{{filme.descricao}}</p>
+            <p class="text-center valor">R$ {{_tratamentoDados.getMoeda(filme.valor)}}</p>
+        </div>
+    </div>
+    <div *ngIf="showMoreFilmes" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center moreFilmes">
+        <button type="button" class="btn btn-warning" (click)="moreFilmes();">Mais Filmes</button>
+    </div>
+</div>

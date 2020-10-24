@@ -1,4 +1,5 @@
 ﻿using BrunoTragl.Inovation.Videolocadora.Application.Business.Interfaces;
+using BrunoTragl.Inovation.Videolocadora.Domain.Model;
 using BrunoTragl.Inovation.Videolocadora.Services.WebApi.Model;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -58,14 +59,14 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
         {
             try
             {
-                FuncionarioModel currentModel = FuncionarioModel.ToModel(_funcionarioBusiness.Get(id));
+                Funcionario currentModel = _funcionarioBusiness.Get(id);
 
                 if (currentModel == null)
                     return NotFound();
 
-                _funcionarioBusiness.Edit(currentModel.ToDomain(), editedModel.ToDomain());
+                _funcionarioBusiness.Edit(currentModel, editedModel.ToDomain());
 
-                return Ok(currentModel.ToBody());
+                return Ok(editedModel.ToBody());
             }
             catch (Exception ex)
             {
@@ -78,7 +79,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
         {
             try
             {
-                FuncionarioModel currentModel = FuncionarioModel.ToModel(_funcionarioBusiness.Get(id));
+                Funcionario currentModel = _funcionarioBusiness.Get(id);
 
                 if (currentModel == null)
                     return NotFound();
@@ -86,12 +87,12 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
                 if (!editedModel.ValidPassword())
                     return BadRequest("A senha informada não é válida.\nDeve conter 6 ou mais caracteres.");
 
-                if (editedModel.SenhasIguais(editedModel.Senha))
+                if (editedModel.SenhasIguais(currentModel.Senha))
                     return BadRequest("A senha informada não é válida.\nTente outra senha.");
                 
-                _funcionarioBusiness.TrocarSenha(currentModel.ToDomain(), editedModel.Senha);
+                _funcionarioBusiness.TrocarSenha(currentModel, editedModel.Senha);
 
-                return Ok(currentModel.ToBody());
+                return Ok(FuncionarioModel.ToModel(currentModel).ToBody());
             }
             catch (Exception ex)
             {
@@ -106,6 +107,8 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Controllers
             {
                 if (newModel != null && newModel.IsValid())
                 {
+                    newModel.Cadastro = DateTime.Now;
+                    newModel.Ativo = true;
                     _funcionarioBusiness.Add(newModel.ToDomain());
                     return Ok(newModel.ToBody());
                 }

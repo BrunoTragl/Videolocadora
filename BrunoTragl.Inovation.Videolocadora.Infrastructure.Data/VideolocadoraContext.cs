@@ -3,6 +3,7 @@ using BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Configurations;
 using BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Seed;
 
 namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data
 {
@@ -30,6 +31,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data
             modelBuilder.ApplyConfiguration(new ClienteConfiguration());
             modelBuilder.ApplyConfiguration(new FilmeConfiguration());
             modelBuilder.ApplyConfiguration(new FuncionarioConfiguration());
+            modelBuilder.SeedData(this);
         }
     }
 }

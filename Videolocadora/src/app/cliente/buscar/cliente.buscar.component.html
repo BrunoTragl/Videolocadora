@@ -1,2 +1,49 @@
 <app-nav></app-nav>
-<h1>TESTANDO BUSCAR CLIENTES</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h1>Buscar Cliente</h1>
+        </div>
+    </div>
+    <div class="quadro-form">
+        <form [formGroup]="buscarClienteForm">
+            <div class="row row-espacamento">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <label for="nome">contém no nome</label>
+                    <input type="text" (change)="seachClientes()" class="form-control" formControlName="nome" name="nome" />
+                </div>
+            </div>
+            <div class="row row-espacamento">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <label for="sobrenome">contém no sobrenome</label>
+                    <input type="text" (change)="seachClientes()" class="form-control" formControlName="sobrenome" name="sobrenome" />
+                </div>
+            </div>
+            <div class="row row-espacamento">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <p [ngStyle]="{'display': exibirMensagemRetorno == true ? 'block' : 'none'}" >{{mensagemRetorno}}</p>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="quadro-estatico">
+                <p class="bold-medio white">Legenda: <i class="fas fa-exclamation-circle desativado espacamento-esquerda"></i> <span class="white">  Cliente desativado</span></p>
+            </div>
+        </div>
+        <div *ngFor="let cliente of clientes" class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+            <div (click)="enterCliente(cliente.id)" class="quadro-selecionavel">
+                <div *ngIf="!cliente.ativo" class="text-left cliente-desativado"><i class="fas fa-exclamation-circle desativado"></i></div>
+                <h4 class="text-center titulo-com-altura-fixa">{{cliente.nome}} {{cliente.sobrenome}}</h4>
+                <p class="text-left espacamento-altura">{{cliente.email}}</p>
+                <p class="text-left">{{cliente.telefone}}</p>
+                <p class="text-left">desde {{_tratamentoDadosService.getDataString(cliente.cadastro)}}</p>
+            </div>
+        </div>
+        <div *ngIf="showMoreClientes" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center mais-clientes">
+            <button type="button" class="btn btn-warning" (click)="moreClientes();">Mais Clientes</button>
+        </div>
+    </div>
+</div>
