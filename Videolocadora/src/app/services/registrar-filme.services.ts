@@ -70,6 +70,7 @@ export class RegistrarFilmeService {
       return null;
     }
     this.registros.splice(this.registros.indexOf(registro, 1));
+    localStorage.setItem(this.KEY_REGISTROS, JSON.stringify(this.registros));
   }
 
   private getRegistro(cliente: Cliente){

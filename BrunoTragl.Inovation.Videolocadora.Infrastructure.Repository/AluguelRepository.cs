@@ -62,7 +62,12 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Repository
         {
             try
             {
-                return _videolocadoraContext.Aluguel.Find(id);
+                return _videolocadoraContext.Aluguel
+                                            .Include(i => i.Cliente)
+                                            .Include(i => i.Filme)
+                                            .Include(i => i.Funcionario)
+                                            .Where(p => p.Id == id)
+                                            .FirstOrDefault();
             }
             catch (Exception ex)
             {
@@ -73,7 +78,12 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Repository
         {
             try
             {
-                return _videolocadoraContext.Aluguel.Include(i => i.Cliente).Include(i => i.Filme).Include(i => i.Funcionario).Where(exp).OrderBy(p => p.Cadastro);
+                return _videolocadoraContext.Aluguel
+                                            .Include(i => i.Cliente)
+                                            .Include(i => i.Filme)
+                                            .Include(i => i.Funcionario)
+                                            .Where(exp)
+                                            .OrderBy(p => p.Cadastro);
             }
             catch (Exception ex)
             {

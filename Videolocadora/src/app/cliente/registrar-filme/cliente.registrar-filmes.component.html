@@ -8,12 +8,14 @@
     </div>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <p *ngIf="possuiAluguelGratuito" class="red">Cliente possui uma alocação gratuita!</p>
             <h4 class="blue">Valor total: R$ {{_tratamentoDados.getMoeda(valorTotalAluguel)}}</h4>
-            <div *ngIf="filmesParaAlugar.length > 0" class="quadro-estatico">
-                <p *ngFor="let filmeAlugar of filmesParaAlugar">{{filmeAlugar.titulo}} | R$ {{_tratamentoDados.getMoeda(filmeAlugar.valor)}} <i class="fas fa-times pointer" (click)="removeFilme(filmeAlugar)"></i></p>
+            <div *ngIf="filmesSelecionados.length > 0" class="quadro-estatico">
+                <p *ngFor="let filmeSelecionado of filmesSelecionados">{{filmeSelecionado.titulo}} | R$ {{_tratamentoDados.getMoeda(filmeSelecionado.valor)}} <i class="fas fa-times pointer" (click)="removeFilme(filmeSelecionado)"></i></p>
             </div>
-            <button *ngIf="filmesParaAlugar.length > 0" type="button" class="btn btn-primary right">Continuar</button>
+            <button *ngIf="filmesSelecionados.length > 0" type="button" class="btn btn-danger right espacamento-esquerda" (click)="cancelarRegistroFilmes()">Cancelar</button>
+            <button *ngIf="filmesSelecionados.length > 0" type="button" class="btn btn-primary right" (click)="continuar()">Continuar</button>
         </div>
     </div>
-    <app-filme-exibir-para-aluguel [filmesSelecionados]="filmesParaAlugar" (listFilmesParaAlugar)="getFilmesParaAlugar($event)"></app-filme-exibir-para-aluguel>
+    <app-filme-exibir-para-aluguel [filmesSelecionados]="filmesSelecionados" (emitirListaFilmesSelecionados)="getFilmesSelecionados($event)"></app-filme-exibir-para-aluguel>
 </div>

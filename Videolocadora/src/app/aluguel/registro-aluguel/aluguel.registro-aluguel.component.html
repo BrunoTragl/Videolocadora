@@ -1,0 +1,48 @@
+<app-nav></app-nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h1>Aluguel | Filme: {{aluguel.filme.titulo}} | Cliente: {{aluguel.cliente.nome}} {{aluguel.cliente.sobrenome}}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <img [src]="aluguel.filme.urlImagem" width="100%">
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-9 col-lg-9">
+            <p>Devolver em {{_tratamentoDados.getDataString(aluguel.devolucao.toString())}}</p>
+            <p *ngIf="aluguelAtrasado(aluguel)" class="red bold-forte">{{diasEmAtraso(aluguel)}} dias em atraso</p>
+            <p *ngIf="aluguelAtrasado(aluguel)" class="red bold-forte">Multa de R$ {{valorMulta}}</p>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#modal-devolucao">Devolução</button>
+            <button class="btn btn-secondary espacamento-esquerda" (click)="voltar()">Voltar</button>
+            <div class="row row-espacamento">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <p [ngStyle]="{'display': exibirMensagemRetorno == true ? 'block' : 'none'}" >{{mensagemRetorno}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modal-devolucao" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-label">Devolução</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div *ngIf="aluguelAtrasado(aluguel)">Para concluir a devolução do filme <span class="bold-forte">{{aluguel.filme.titulo}}</span>, confirme o pagamento da multa no valor de <span class="bold-forte red">R$ {{valorMulta}}</span>?</div>
+            <div *ngIf="!aluguelAtrasado(aluguel)">Confirmar a devolução do filme?</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal" (click)="devolver()">Confirmar Devolução!</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Ainda não</button>
+        </div>
+      </div>
+    </div>
+  </div>

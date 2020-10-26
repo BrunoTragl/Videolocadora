@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FuncionarioComponent } from './funcionario/funcionario.component';
 import { FuncionarioNovoComponent } from './funcionario/novo/funcionario.novo.component';
-import { AluguelComponent } from './aluguel/aluguel.component';
+import { RegistroAluguelComponent } from './aluguel/registro-aluguel/aluguel.registro-aluguel.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ClienteDetalhesComponent } from './cliente/detalhes/cliente.detalhes.component';
 import { ClienteNovoComponent } from './cliente/novo/cliente.novo.component';
@@ -31,6 +31,11 @@ import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { FilmeExibirComponent } from './filme/exibir-filmes/filme.exibir-para-aluguel.component';
 import { ClienteRegistrarFilmesComponent } from './cliente/registrar-filme/cliente.registrar-filmes.component';
 import { RegistrarFilmeService } from './services/registrar-filme.services';
+import { ClienteFinalizarAluguelComponent } from './cliente/finalizar-aluguel/cliente.finalizar-aluguel.component';
+import { AluguelService } from './services/aluguel.services';
+import { RelatorioAlugueisAtivosComponent } from './relatorio/alugueis-ativos/relatorio.alugueis-ativos.component';
+import { RelatorioClientesInadimplentesComponent } from './relatorio/clientes-inadimplentes/relatorio.clientes-inadimplentes.component';
+import { RelatorioService } from './services/relatorio.services';
 
 const maskConfigFunction: () => Partial<IConfig> = () => {
   return {
@@ -45,7 +50,7 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     FilmeNovoComponent,
     FilmeBuscarComponent,
     FuncionarioComponent,
-    AluguelComponent,
+    RegistroAluguelComponent,
     ClienteDetalhesComponent,
     ClienteNovoComponent,
     ClienteBuscarComponent,
@@ -55,7 +60,10 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     FuncionarioNovoComponent,
     FuncionarioTrocarSenhaComponent,
     FilmeExibirComponent,
-    ClienteRegistrarFilmesComponent
+    ClienteRegistrarFilmesComponent,
+    ClienteFinalizarAluguelComponent,
+    RelatorioAlugueisAtivosComponent,
+    RelatorioClientesInadimplentesComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +83,9 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     FilmeService,
     ClienteService,
     ApiUrlService,
-    RegistrarFilmeService
+    RegistrarFilmeService,
+    AluguelService,
+    RelatorioService
   ],
   bootstrap: [AppComponent]
 })

@@ -25,6 +25,8 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.IOC
                 services.AddTransient<IClienteBusiness, ClienteBusiness>();
                 services.AddTransient<IFilmeBusiness, FilmeBusiness>();
                 services.AddTransient<IFuncionarioBusiness, FuncionarioBusiness>();
+                services.AddTransient<IControlePromocionalBusiness, ControlePromocionalBusiness>();
+                services.AddTransient<IControlePromocionalRepository, ControlePromocionalRepository>();
                 services.AddSingleton(MapConfiguration.Config());
             }
             catch (Exception ex)

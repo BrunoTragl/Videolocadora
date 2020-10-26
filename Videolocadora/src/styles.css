@@ -21,6 +21,9 @@ a, h1, h2, h3, h4, h5 {
     cursor: pointer;
 }
 
+.espacamento-topo {
+    margin-top: 15px;
+}
 .espacamento-esquerda {
     margin-left: 15px;
 }

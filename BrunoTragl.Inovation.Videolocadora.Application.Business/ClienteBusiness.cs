@@ -99,8 +99,10 @@ namespace BrunoTragl.Inovation.Videolocadora.Application.Business
         {
             try
             {
-                IEnumerable<Aluguel> alugueis = _aluguelRepository.Get(a => a.Cliente.Id == cliente.Id);
-                return alugueis.Any(a => a.Ativo && (a.ValorPago <= 0 || a.Devolucao == null));
+                //IEnumerable<Aluguel> alugueis = _aluguelRepository.Get(a => a.Cliente.Id == cliente.Id);
+                //return alugueis.Any(a => a.Ativo && (a.ValorPago <= 0 || a.Devolucao == null));
+
+                return true;
             }
             catch (Exception ex)
             {

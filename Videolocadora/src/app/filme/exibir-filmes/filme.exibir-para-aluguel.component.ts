@@ -12,13 +12,13 @@ import { TratamentoDadosService } from 'src/app/services/tratamento.dados.servic
   templateUrl: './filme.exibir-para-aluguel.component.html',
   styleUrls: ['./filme.exibir-para-aluguel.component.css']
 })
-export class FilmeExibirComponent implements OnInit { ////FILHO
+export class FilmeExibirComponent implements OnInit {
 
-  @Output() listFilmesParaAlugar = new EventEmitter();
+  @Output() emitirListaFilmesSelecionados = new EventEmitter();
   @Input() filmesSelecionados;
 
-  public filmes: Filme[] = [];
-  public filmesParaAlugar: Filme[] = [];
+  public listaQuadroFilmes: Filme[] = [];
+  public listaFilmesSelecionados: Filme[] = [];
   public buscarFilmeForm: FormGroup = this._formBulider.group({  
     titulo: ['', [Validators.required]]
   });
@@ -36,22 +36,22 @@ export class FilmeExibirComponent implements OnInit { ////FILHO
               public _tratamentoDados: TratamentoDadosService) { }
 
   ngOnInit() {
-    this.initialFilmes();
+    //this.seachFilmes();
   }
 
   ngOnChanges(changes: SimpleChanges){
     console.log(changes);
     if(changes.filmesSelecionados){
-      this.filmesParaAlugar = changes.filmesSelecionados.currentValue;
+      this.listaFilmesSelecionados = changes.filmesSelecionados.currentValue;
       this.seachFilmes();
     }
   }
 
   enterFilme(id: number){
-    let filme = this.filmes.find(f => f.id === id);
-    this.filmesParaAlugar.push(filme);
-    this.filmes.splice(this.filmes.indexOf(filme), 1);
-    this.listFilmesParaAlugar.emit(this.filmesParaAlugar);
+    let filme = this.listaQuadroFilmes.find(f => f.id === id);
+    this.listaFilmesSelecionados.push(filme);
+    this.listaQuadroFilmes.splice(this.listaQuadroFilmes.indexOf(filme), 1);
+    this.emitirListaFilmesSelecionados.emit(this.listaFilmesSelecionados);
   }
 
   initialFilmes(){
@@ -71,7 +71,7 @@ export class FilmeExibirComponent implements OnInit { ////FILHO
       titulo = this.buscarFilmeForm.value.titulo;
     }
     
-    this._filmeService.getPaginationUnselectedFilmes(titulo, this.skip, this.take, this.filmesParaAlugar).subscribe((ret) => {
+    this._filmeService.getPaginationUnselectedFilmes(titulo, this.skip, this.take, this.listaFilmesSelecionados).subscribe((ret) => {
       if(ret.data.length === 0){
         this.exibirMensagemRetorno = true;
         this.mensagemRetorno = 'Não houve resultados para esta palavra-chave.';
@@ -103,9 +103,10 @@ export class FilmeExibirComponent implements OnInit { ////FILHO
   private pushFilmes(ret: Data<Filme[]>){
     this.showMoreFilmes = ret.data.length == this.take;
     ret.data.forEach((filme) => {
-      let filmeJaSelecionado = this.filmesParaAlugar.find(p => p.id === filme.id);
-      if(!filmeJaSelecionado){
-        this.filmes.push(filme);
+      let filmeJaSelecionado = this.listaFilmesSelecionados.find(p => p.id === filme.id);
+      let filmeJaExibido = this.listaQuadroFilmes.find(p => p.id == filme.id);
+      if(!filmeJaSelecionado && !filmeJaExibido){
+        this.listaQuadroFilmes.push(filme);
       }
     },
     (err) => {
@@ -121,7 +122,7 @@ export class FilmeExibirComponent implements OnInit { ////FILHO
   }
 
   private configSearch(){
-    this.filmes = [];
+    this.listaQuadroFilmes = [];
     this.skip = this._initialSkip;
     this.take = this._initialTake;
     this.showMoreFilmes = false;

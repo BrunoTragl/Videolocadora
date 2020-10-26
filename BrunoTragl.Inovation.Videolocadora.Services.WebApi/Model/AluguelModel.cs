@@ -2,6 +2,7 @@
 using BrunoTragl.Inovation.Videolocadora.Domain.Model;
 using BrunoTragl.Inovation.Videolocadora.Services.WebApi.Map;
 using System;
+using System.Collections.Generic;
 
 namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Model
 {
@@ -15,8 +16,9 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Model
 
         public int Id { get; set; }
         public decimal ValorPago { get; set; }
-        public decimal Multa { get; set; }
+        public decimal? Multa { get; set; }
         public DateTime Devolucao { get; set; }
+        public DateTime? Devolveu { get; set; }
         public ClienteModel Cliente { get; set; }
         public FuncionarioModel Funcionario { get; set; }
         public FilmeModel Filme { get; set; }
@@ -35,6 +37,22 @@ namespace BrunoTragl.Inovation.Videolocadora.Services.WebApi.Model
 
                 IMapper mapper = MapConfiguration.Config();
                 return mapper.Map<AluguelModel>(aluguel);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static IEnumerable<AluguelModel> ToListModel(IEnumerable<Aluguel> alugueis)
+        {
+            try
+            {
+                if (alugueis == null)
+                    return null;
+
+                IMapper mapper = MapConfiguration.Config();
+                return mapper.Map<IEnumerable<AluguelModel>>(alugueis);
             }
             catch (Exception ex)
             {

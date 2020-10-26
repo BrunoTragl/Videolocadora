@@ -38,13 +38,16 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                     b.Property<DateTime>("Devolucao")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime?>("Devolveu")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("FilmeId")
                         .HasColumnType("int");
 
                     b.Property<int>("FuncionarioId")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("Multa")
+                    b.Property<decimal?>("Multa")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("ValorPago")
@@ -52,14 +55,11 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ClienteId")
-                        .IsUnique();
+                    b.HasIndex("ClienteId");
 
-                    b.HasIndex("FilmeId")
-                        .IsUnique();
+                    b.HasIndex("FilmeId");
 
-                    b.HasIndex("FuncionarioId")
-                        .IsUnique();
+                    b.HasIndex("FuncionarioId");
 
                     b.ToTable("aluguel");
                 });
@@ -103,442 +103,466 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 1,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(5244),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(3119),
                             Email = "cleiton.feitosa@contoso.xpto.com",
-                            Nascimento = new DateTime(1995, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1973, 6, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Cleiton Alves",
                             Sobrenome = "Feitosa",
-                            Telefone = "(9) 9384-4592"
+                            Telefone = "(58) 9113-5447"
                         },
                         new
                         {
                             Id = 2,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6254),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4149),
                             Email = "leandro.silva@contoso.xpto.com",
-                            Nascimento = new DateTime(1942, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1967, 5, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Leandro Gomes",
                             Sobrenome = "Silva",
-                            Telefone = "(96) 6995-8754"
+                            Telefone = "(39) 4809-1196"
                         },
                         new
                         {
                             Id = 3,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6284),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4178),
                             Email = "aline.hashers@contoso.xpto.com",
-                            Nascimento = new DateTime(1985, 4, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1987, 5, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Aline Freitas",
                             Sobrenome = "Hashers",
-                            Telefone = "(27) 5311-4504"
+                            Telefone = "(24) 3377-7530"
                         },
                         new
                         {
                             Id = 4,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6293),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4187),
                             Email = "ze.braido@contoso.xpto.com",
-                            Nascimento = new DateTime(1947, 3, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1997, 6, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "José de Arruda",
                             Sobrenome = "Braido",
-                            Telefone = "(70) 5417-4983"
+                            Telefone = "(47) 6417-7556"
                         },
                         new
                         {
                             Id = 5,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6301),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4195),
                             Email = "armando.severo@contoso.xpto.com",
-                            Nascimento = new DateTime(1977, 7, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1970, 4, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Armando",
                             Sobrenome = "Severó",
-                            Telefone = "(40) 4179-9643"
+                            Telefone = "(96) 9727-1594"
                         },
                         new
                         {
                             Id = 6,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6308),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4203),
                             Email = "igor.leitosa@contoso.xpto.com",
-                            Nascimento = new DateTime(1953, 2, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1969, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Igor",
                             Sobrenome = "Leitosa",
-                            Telefone = "(74) 6513-2924"
+                            Telefone = "(87) 5615-2404"
                         },
                         new
                         {
                             Id = 7,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6315),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4210),
                             Email = "gustavo.trato@contoso.xpto.com",
-                            Nascimento = new DateTime(1981, 5, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1942, 10, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Gustavo",
                             Sobrenome = "Trato",
-                            Telefone = "(44) 5122-9631"
+                            Telefone = "(55) 5660-1669"
                         },
                         new
                         {
                             Id = 8,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6322),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4218),
                             Email = "guilherme.arruda@contoso.xpto.com",
-                            Nascimento = new DateTime(1966, 10, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1955, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Guilherme",
                             Sobrenome = "Arruda",
-                            Telefone = "(59) 5871-1552"
+                            Telefone = "(66) 8984-4598"
                         },
                         new
                         {
                             Id = 9,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6329),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4225),
                             Email = "rosa.lumini@contoso.xpto.com",
-                            Nascimento = new DateTime(1971, 10, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1983, 7, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Rosa Alves",
                             Sobrenome = "Lumini",
-                            Telefone = "(29) 9578-8488"
+                            Telefone = "(89) 6915-3804"
                         },
                         new
                         {
                             Id = 10,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6336),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4232),
                             Email = "david.carvalho@contoso.xpto.com",
-                            Nascimento = new DateTime(1995, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1962, 2, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "David Oliveira",
                             Sobrenome = "Carvalho",
-                            Telefone = "(61) 4501-4083"
+                            Telefone = "(20) 1310-6610"
                         },
                         new
                         {
                             Id = 11,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6342),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4239),
                             Email = "karine.cortez@contoso.xpto.com",
-                            Nascimento = new DateTime(1964, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1957, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Karine Maria Gonçalves",
                             Sobrenome = "Cortez",
-                            Telefone = "(44) 7585-5868"
+                            Telefone = "(30) 8676-5553"
                         },
                         new
                         {
                             Id = 12,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6349),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4247),
                             Email = "gustavo.santos@contoso.xpto.com",
-                            Nascimento = new DateTime(1954, 1, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1964, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Gustavo Pereira",
                             Sobrenome = "Santos",
-                            Telefone = "(71) 5620-1517"
+                            Telefone = "(77) 2095-4230"
                         },
                         new
                         {
                             Id = 13,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6356),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4253),
                             Email = "leandro.silva@contoso.xpto.com",
-                            Nascimento = new DateTime(1999, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1942, 5, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Leandro José Paulo",
                             Sobrenome = "Silva",
-                            Telefone = "(73) 3181-6309"
+                            Telefone = "(56) 2467-4371"
                         },
                         new
                         {
                             Id = 14,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6362),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4260),
                             Email = "maria.santos@contoso.xpto.com",
-                            Nascimento = new DateTime(1961, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1978, 10, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Maria Nainam Silvino Araújo",
                             Sobrenome = "Santos",
-                            Telefone = "(93) 8496-5512"
+                            Telefone = "(82) 3309-4582"
                         },
                         new
                         {
                             Id = 15,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6369),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4268),
                             Email = "jullieny.oliveira@contoso.xpto.com",
-                            Nascimento = new DateTime(1998, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1946, 7, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Jullieny Melo",
                             Sobrenome = "Oliveira",
-                            Telefone = "(81) 8355-4382"
+                            Telefone = "(36) 5486-4449"
                         },
                         new
                         {
                             Id = 16,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6376),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4276),
                             Email = "daniel.rocha@contoso.xpto.com",
-                            Nascimento = new DateTime(1947, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1956, 11, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Daniel dos Santos",
                             Sobrenome = "Rocha",
-                            Telefone = "(16) 9903-7845"
+                            Telefone = "(14) 3027-1267"
                         },
                         new
                         {
                             Id = 17,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6382),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4283),
                             Email = "itamar.souza@contoso.xpto.com",
-                            Nascimento = new DateTime(1977, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1979, 1, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Itamar de Carvalho",
                             Sobrenome = "Souza",
-                            Telefone = "(59) 3845-5743"
+                            Telefone = "(63) 3045-9696"
                         },
                         new
                         {
                             Id = 18,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6437),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4338),
                             Email = "alvaro.batista@contoso.xpto.com",
-                            Nascimento = new DateTime(1964, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1970, 11, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Álvaro Rogério",
                             Sobrenome = "Batista",
-                            Telefone = "(94) 3284-2989"
+                            Telefone = "(63) 8499-2949"
                         },
                         new
                         {
                             Id = 19,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6443),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4346),
                             Email = "rita.santos@contoso.xpto.com",
-                            Nascimento = new DateTime(1944, 3, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1960, 10, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Rita de Cássia dos",
                             Sobrenome = "Santos",
-                            Telefone = "(54) 3106-3930"
+                            Telefone = "(55) 5511-2451"
                         },
                         new
                         {
                             Id = 20,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6450),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4354),
                             Email = "alcione.germino@contoso.xpto.com",
-                            Nascimento = new DateTime(1957, 6, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1954, 6, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Alcione Monteiro Lucas",
                             Sobrenome = "Germino",
-                            Telefone = "(85) 4808-7569"
+                            Telefone = "(12) 2185-3270"
                         },
                         new
                         {
                             Id = 21,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6456),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4361),
                             Email = "fabiana.silva@contoso.xpto.com",
-                            Nascimento = new DateTime(1962, 5, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1955, 2, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Fabiana Flávia",
                             Sobrenome = "Silva",
-                            Telefone = "(35) 6062-4668"
+                            Telefone = "(56) 5301-2794"
                         },
                         new
                         {
                             Id = 22,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6463),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4368),
                             Email = "carolina.souza@contoso.xpto.com",
-                            Nascimento = new DateTime(1941, 10, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1969, 11, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Carolina Caraciolo de",
                             Sobrenome = "Souza",
-                            Telefone = "(99) 1833-2841"
+                            Telefone = "(94) 8948-2265"
                         },
                         new
                         {
                             Id = 23,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6470),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4375),
                             Email = "jonas.chaves@contoso.xpto.com",
-                            Nascimento = new DateTime(1965, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1940, 1, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Jonas Augusto de Barros",
                             Sobrenome = "Chaves",
-                            Telefone = "(56) 5803-1059"
+                            Telefone = "(47) 3881-3736"
                         },
                         new
                         {
                             Id = 24,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6477),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4381),
                             Email = "carlos.silva@contoso.xpto.com",
-                            Nascimento = new DateTime(1949, 1, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1997, 6, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Carlos Andrade",
                             Sobrenome = "Silva",
-                            Telefone = "(95) 7469-6573"
+                            Telefone = "(12) 9692-6935"
                         },
                         new
                         {
                             Id = 25,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6483),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4388),
                             Email = "rosa.lumini@contoso.xpto.com",
-                            Nascimento = new DateTime(1963, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1965, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Luciana Dutra Cavalcanti",
                             Sobrenome = "Ricarte",
-                            Telefone = "(73) 8044-5667"
+                            Telefone = "(73) 8399-7800"
                         },
                         new
                         {
                             Id = 26,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6490),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4395),
                             Email = "denys.silva@contoso.xpto.com",
-                            Nascimento = new DateTime(1994, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1988, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Denys Vytor de Queiroz da",
                             Sobrenome = "Silva",
-                            Telefone = "(48) 2669-8837"
+                            Telefone = "(20) 4174-2181"
                         },
                         new
                         {
                             Id = 27,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6496),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4402),
                             Email = "maria.silva@contoso.xpto.com",
-                            Nascimento = new DateTime(1960, 2, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1973, 11, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Maria Auxiliadora da",
                             Sobrenome = "Silva",
-                            Telefone = "(93) 9193-4264"
+                            Telefone = "(31) 2013-8568"
                         },
                         new
                         {
                             Id = 28,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6502),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4409),
                             Email = "marcello.veloso@contoso.xpto.com",
-                            Nascimento = new DateTime(1969, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1940, 5, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Marcello Henryque da Silva Souza",
                             Sobrenome = "Veloso",
-                            Telefone = "(80) 1702-4974"
+                            Telefone = "(84) 5556-5290"
                         },
                         new
                         {
                             Id = 29,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6510),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4416),
                             Email = "marli.felix@contoso.xpto.com",
-                            Nascimento = new DateTime(1975, 9, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1971, 9, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Marli Rodrigues",
                             Sobrenome = "Félix",
-                            Telefone = "(87) 7104-4527"
+                            Telefone = "(93) 1773-6643"
                         },
                         new
                         {
                             Id = 30,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6516),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4422),
                             Email = "milena.souza@contoso.xpto.com",
-                            Nascimento = new DateTime(1999, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1969, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Milena Rolim",
                             Sobrenome = "Souza",
-                            Telefone = "(61) 9137-9434"
+                            Telefone = "(78) 1966-7392"
                         },
                         new
                         {
                             Id = 31,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6523),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4429),
                             Email = "glaucia.pereira@contoso.xpto.com",
-                            Nascimento = new DateTime(1972, 4, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1987, 9, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Glaucia Adriana Dantas",
                             Sobrenome = "Pereira",
-                            Telefone = "(29) 1916-3860"
+                            Telefone = "(50) 2279-3480"
                         },
                         new
                         {
                             Id = 32,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6530),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4436),
                             Email = "joane.carvalho@contoso.xpto.com",
-                            Nascimento = new DateTime(1976, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1955, 10, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Joane Maria da Silva de",
                             Sobrenome = "Carvalho",
-                            Telefone = "(88) 2709-4780"
+                            Telefone = "(55) 8922-4174"
                         },
                         new
                         {
                             Id = 33,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6536),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4443),
                             Email = "kenia.arruda@contoso.xpto.com",
-                            Nascimento = new DateTime(1985, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1990, 8, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Kênia Stephanie Nunes",
                             Sobrenome = "Arruda",
-                            Telefone = "(44) 5250-6795"
+                            Telefone = "(93) 1373-6087"
                         },
                         new
                         {
                             Id = 34,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6543),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4450),
                             Email = "lorena.farias@contoso.xpto.com",
-                            Nascimento = new DateTime(1971, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1982, 7, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Lorena Alcântara",
                             Sobrenome = "Farias",
-                            Telefone = "(48) 2151-1073"
+                            Telefone = "(94) 2742-1125"
                         },
                         new
                         {
                             Id = 35,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6549),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4457),
                             Email = "maria.oliveira@contoso.xpto.com",
-                            Nascimento = new DateTime(1975, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1976, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Maria Gisele da Silva",
                             Sobrenome = "Oliveira",
-                            Telefone = "(29) 5108-7905"
+                            Telefone = "(32) 6729-2348"
                         },
                         new
                         {
                             Id = 36,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6556),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4463),
                             Email = "diogo.souza@contoso.xpto.com",
-                            Nascimento = new DateTime(1948, 9, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1940, 9, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Diogo Fernandes de",
                             Sobrenome = "Souza",
-                            Telefone = "(38) 4549-6325"
+                            Telefone = "(78) 5246-4000"
                         },
                         new
                         {
                             Id = 37,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6562),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4471),
                             Email = "elivelton.silva@contoso.xpto.com",
-                            Nascimento = new DateTime(1955, 3, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1980, 6, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Elivelton Costa da",
                             Sobrenome = "Silva",
-                            Telefone = "(80) 2792-1863"
+                            Telefone = "(70) 6176-6649"
                         },
                         new
                         {
                             Id = 38,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6569),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4478),
                             Email = "genildson.oliveira@contoso.xpto.com",
-                            Nascimento = new DateTime(1990, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1989, 1, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Genildson Alvez de",
                             Sobrenome = "Oliveira",
-                            Telefone = "(56) 2031-5012"
+                            Telefone = "(81) 1878-4492"
                         },
                         new
                         {
                             Id = 39,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6575),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4484),
                             Email = "gerdon.mafra@contoso.xpto.com",
-                            Nascimento = new DateTime(1956, 7, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1954, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Gerdon Adler Ribeiro",
                             Sobrenome = "Mafra",
-                            Telefone = "(16) 1569-3808"
+                            Telefone = "(60) 1528-5643"
                         },
                         new
                         {
                             Id = 40,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(6611),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(4491),
                             Email = "gilberto.oliveira@contoso.xpto.com",
-                            Nascimento = new DateTime(1963, 2, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nascimento = new DateTime(1967, 10, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nome = "Gilberto",
                             Sobrenome = "Oliveira",
-                            Telefone = "(18) 6777-1569"
+                            Telefone = "(23) 8677-3439"
                         });
+                });
+
+            modelBuilder.Entity("BrunoTragl.Inovation.Videolocadora.Domain.Model.ControlePromocional", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Ativo")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("Cadastro")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("Fim")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("Inicio")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("controle_promocional");
                 });
 
             modelBuilder.Entity("BrunoTragl.Inovation.Videolocadora.Domain.Model.Filme", b =>
@@ -577,7 +601,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 1,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 311, DateTimeKind.Local).AddTicks(9288),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(7146),
                             Descricao = "Jovens se aventuram em festas do colegial. Muita diversão e bebedeiras!!! HAHAHAHA",
                             Titulo = "American Pie 3",
                             UrlImagem = "https://vignette.wikia.nocookie.net/doblaje/images/1/1f/AmericanPieCampamento.jpg/revision/latest/top-crop/width/360/height/450?cb=20091001181345&path-prefix=es",
@@ -587,7 +611,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 2,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(198),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8082),
                             Descricao = "O ex-policial Brian comete uma grande traição, juntando-se a um amigo ex-presidiário no transporte de dinheiro sujo para uma importadora-exportadora muito suspeita.",
                             Titulo = "+ Velozes + Furiosos",
                             UrlImagem = "https://vignette.wikia.nocookie.net/velozes-e-furiosos/images/a/aa/Velozes_e_Furiosos_-_Capa.jpg/revision/latest/top-crop/width/360/height/450?cb=20180305235641&path-prefix=pt-br",
@@ -597,7 +621,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 3,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(222),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8102),
                             Descricao = "A bordo do luxuoso transatlântico, Rose (Kate Winslet), uma jovem da alta sociedade, se sente pressionada com a vida que leva. Ao conhecer Jack (Leonardo DiCaprio), um artista pobre e aventureiro, os dois se apaixonam. Mas eles terão que enfrentar um desafio ainda maior que o preconceito social com o destino trágico do navio.",
                             Titulo = "Titanic",
                             UrlImagem = "https://vignette.wikia.nocookie.net/maritime-disaster/images/b/b3/300px-RMS_Titanic_3.jpg/revision/latest/top-crop/width/360/height/450?cb=20170425130744",
@@ -607,7 +631,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 4,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(224),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8104),
                             Descricao = "Don Corleone (Marlon Brando) é chefe de uma das famílias de mafiosos italianos mais respeitadas de Nova York. Quando ele é ferido e afastado de suas funções, o filho Michael (Al Pacino) deve tomar as rédeas da situação para acabar com o responsável e manter a honra do pai intacta. Dirigido por Francis Ford Coppola e vencedor de três Oscars, incluindo o de Melhor Filme.",
                             Titulo = "O Poderoso Chefão",
                             UrlImagem = "https://images-na.ssl-images-amazon.com/images/I/41NrywwjCEL._AC_SY450_.jpg",
@@ -617,7 +641,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 5,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(226),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8105),
                             Descricao = "Num futuro dominado pelas máquinas, os computadores mandam ao passado um androide (Arnold Schwarzenegger) praticamente indestrutível. Sua missão é matar Sarah Connor antes que ela dê à luz o líder da resistência humana na guerra contra a inteligência artificial. Os seres humanos também enviam um agente para proteger a mulher.",
                             Titulo = "O Exterminador Do Futuro",
                             UrlImagem = "https://vignette.wikia.nocookie.net/exterminadordofuturo/images/6/6f/Terminator.jpeg/revision/latest/top-crop/width/360/height/450?cb=20150730214551&path-prefix=pt-br",
@@ -627,7 +651,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 6,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(228),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8107),
                             Descricao = "De volta para o terceiro ano em Hogwarts, Harry Potter (Daniel Radcliffe) encontra a escola sob estado de atenção: os sombrios dementadores cercam as proximidades do castelo em busca de Sirius Black (Gary Oldman), assassino recém-fugido da prisão de Azkaban que está atrás de Harry. Dirigido por Alfonso Cuarón e indicado ao Oscar de Melhor Canção Original e Melhores Efeitos Visuais.",
                             Titulo = "Harry Potter E O Prisioneiro De Azkaban",
                             UrlImagem = "https://vignette.wikia.nocookie.net/vozesportuguesas/images/a/a5/HP3.jpg/revision/latest/top-crop/width/360/height/450?cb=20200928052358&path-prefix=pt",
@@ -637,7 +661,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 7,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(230),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8109),
                             Descricao = "Marty McFly (Michael J. Fox) é um jovem que acidentalmente viaja em uma máquina do tempo construída pelo cientista Doc Brown (Christopher Lloyd). Agora, nos anos 1950, ele vê seus pais que ainda não se apaixonaram. E, para não colocar em risco sua própria existência, ele precisa agir como cupido dos pais. Vencedor do Oscar de Melhor Edição de Som.",
                             Titulo = "De Volta Para O Futuro",
                             UrlImagem = "https://images-na.ssl-images-amazon.com/images/I/916GbiXiQCL._SY450_.jpg",
@@ -647,7 +671,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 8,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(232),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8111),
                             Descricao = "Com o auxílio da engenharia genética criada pelos doutores Alan (Sam Neill), Ellie (Laura Dern) e Ian, um milionário traz à vida dinossauros extintos há milhares de anos, criando um imenso parque em uma remota ilha. Porém, os gigantes pré-históricos começam a ameaçar a vida dos vistitantes. Vencedor de 3 Oscars, incluindo o de Melhores Efeitos Visuais.",
                             Titulo = "Jurassic Park - O Parque Dos Dinossauros",
                             UrlImagem = "https://i.pinimg.com/originals/12/45/97/124597895a3367703ce104584c6dfd19.jpg",
@@ -657,7 +681,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 9,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(234),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8113),
                             Descricao = "Na Terra-Média, o hobbit Frodo (Elijah Woods) recebe de presente de seu tio o Um Anel, um anel mágico e maligno que precisa ser destruído antes que caia nas mãos do mal. Para isso ele terá um caminho árduo pela frente, mas para o cumprimento desta jornada aos poucos ele poderá contar com outros seres que formarão a Sociedade do Anel.",
                             Titulo = "O Senhor dos Anéis: A Sociedade do Anel",
                             UrlImagem = "https://vignette.wikia.nocookie.net/liberproeliis/images/9/9a/Aragorn_Wikia.jpg/revision/latest/top-crop/width/360/height/450?cb=20200616201039&path-prefix=pt-br",
@@ -667,7 +691,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 10,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(236),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8115),
                             Descricao = "Baseado na biografia de Stephen Hawking (Eddie Redmayne), o filme mostra as importantes descobertas do aclamado astrofísico sobre o tempo. Além de retratar seu relacionamento com a esposa Jane e os desafios que vieram com a descoberta de uma doença degenerativa.",
                             Titulo = "A Teoria De Tudo",
                             UrlImagem = "https://vignette.wikia.nocookie.net/figure-skating-13/images/2/29/Theoryofeverything.jpg/revision/latest/top-crop/width/360/height/450?cb=20181229212809",
@@ -677,7 +701,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 11,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(238),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8117),
                             Descricao = "Oito anos após a morte de Harvey Dent, a cidade de Gotham City está pacificada e não precisa mais do Batman. A situação faz com que Bruce Wayne (Christian Bale) se torne um homem recluso em sua mansão, convivendo apenas com o mordomo Alfred (Michael Caine). Um dia, em meio a uma festa realizada na Mansão Wayne, uma das garçonetes contratadas (Anne Hathaway) rouba um colar de grande valor sentimental. Curioso em descobrir quem é ela, Bruce retorna à caverna para usar os computadores que tanto lhe serviram. Aos poucos começa a perceber indícios do surgimento de uma nova ameaça a Gotham City, personificada no brutamontes Bane (Tom Hardy). É o suficiente para que volte a ser o Batman.",
                             Titulo = "Batman: O Cavaleiro das Trevas Ressurge",
                             UrlImagem = "https://vignette.wikia.nocookie.net/marvel_dc/images/0/05/The_Dark_Knight_Rises_poster.jpg/revision/latest/top-crop/width/360/height/450?cb=20120123215909",
@@ -687,7 +711,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 12,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(240),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8118),
                             Descricao = "Quando Páris (Orlando Bloom), o príncipe de Troia, se apaixona por Helena (Diane Kruger), rainha de Esparta, o rei Menelau (Brendan Gleeson) inicia uma guerra de anos entre os dois reinos. Para vencer, Esparta conta com Aquiles (Brad Pitt), um guerreiro lendário que comanda um exército próprio. Indicado ao Oscar de Melhor Figurino.",
                             Titulo = "Tróia",
                             UrlImagem = "https://i.pinimg.com/474x/2d/35/6a/2d356a67ffb38bbe93e2959fe45265c4.jpg",
@@ -697,7 +721,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 13,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(242),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8120),
                             Descricao = "Elizabeth Shaw (Noomi Rapace) e Charlie Holloway (Logan Marshall-Green) fazem parte de uma equipe de cientistas que embarca em uma jornada espacial para descobrir a verdade sobre a origem da raça humana. A nave Prometheus também é composta pelo robô David (Michael Fassbender), a diretora Meredith Vickers (Charlize Theron), o capitão Janek (Idris Elba), entre outros. Quando eles chegam ao planeta de destino, eles encontram criaturas poderosas, violentas e revelações estarrecedoras.",
                             Titulo = "Prometheus",
                             UrlImagem = "https://vignette.wikia.nocookie.net/theflophouse/images/1/19/Prometheus-poster.jpg/revision/latest/top-crop/width/360/height/450?cb=20170430003032",
@@ -707,7 +731,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 14,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(244),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8122),
                             Descricao = "Baseado na história real de uma família de turistas durante um Tsunami que atingiu o sudeste asiático. Após a destruição causada pela onda gigante, uma mãe (Naomi Watts) tenta sobreviver com seu filho adolescente e reencontrar seu marido (Ewan McGregor) e seus dois filhos pequenos no meio do caos na Tailândia. Indicado ao Oscar de Melhor Atriz.",
                             Titulo = "O Impossível",
                             UrlImagem = "https://vignette.wikia.nocookie.net/my-little-baby-boy-harry-styles-fanfiction/images/f/fd/The_Impossible.png/revision/latest/top-crop/width/360/height/450?cb=20180923001955",
@@ -717,7 +741,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 15,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(246),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8124),
                             Descricao = "A caminho da Terra, a nave Nostromo recebe um pedido de socorro de um planeta próximo. Ao desembarcar no local, um dos tripulantes é vítima de uma criatura alienígena, dando início a uma série de ataques assassinos dentro da espaçonave. Dirigido por Ridley Scott, o filme ganhou dois Oscars, incluindo o de Melhores Efeitos Visuais.",
                             Titulo = "Alien, O Oitavo Passageiro",
                             UrlImagem = "https://pm1.narvii.com/6960/c67686f08b1b55962883d5575c56aaeb798662aar1-360-450v2_00.jpg",
@@ -727,7 +751,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 16,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(247),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8126),
                             Descricao = "A inusitada história de Oskar Schindler (Liam Neeson), um sujeito oportunista, sedutor, 'armador', simpático, comerciante no mercado negro, mas, acima de tudo, um homem que se relacionava muito bem com o regime nazista, tanto que era membro do próprio Partido Nazista (o que não o impediu de ser preso algumas vezes, mas sempre o libertavam rapidamente, em razão dos seus contatos).",
                             Titulo = "A Lista de Schindler",
                             UrlImagem = "https://vignette.wikia.nocookie.net/figure-skating-13/images/1/1f/MV5BMzMwMTM4MDU2N15BMl5BanBnXkFtZTgwMzQ0MjMxMDE%40._V1_SX640_SY720_.jpg/revision/latest/top-crop/width/360/height/450?cb=20160121092516",
@@ -737,7 +761,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 17,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(249),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8128),
                             Descricao = "Em 1946, Andy Dufresne (Tim Robbins), um jovem e bem sucedido banqueiro, tem a sua vida radicalmente modificada ao ser condenado por um crime que nunca cometeu, o homicídio de sua esposa e do amante dela. Ele é mandado para uma prisão que é o pesadelo de qualquer detento, a Penitenciária Estadual de Shawshank, no Maine.",
                             Titulo = "Um Sonho de Liberdade",
                             UrlImagem = "https://images-na.ssl-images-amazon.com/images/I/8189H-FijZL._AC_SY450_.jpg",
@@ -747,7 +771,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 18,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(251),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8130),
                             Descricao = "Mufasa (voz de James Earl Jones), o Rei Leão, e a rainha Sarabi (voz de Madge Sinclair) apresentam ao reino o herdeiro do trono, Simba (voz de Matthew Broderick). O recém-nascido recebe a bênção do sábio babuíno Rafiki (voz de Robert Guillaume), mas ao crescer é envolvido nas artimanhas de seu tio Scar (voz de Jeremy Irons), o invejoso e maquiavélico irmão de Mufasa, que planeja livrar-se do sobrinho e herdar o trono.",
                             Titulo = "O Rei Leão",
                             UrlImagem = "https://vignette.wikia.nocookie.net/vozesportuguesas/images/2/2e/O_Rei_Le%C3%A3o.jpg/revision/latest/top-crop/width/360/height/450?cb=20200718121256&path-prefix=pt",
@@ -757,7 +781,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 19,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(253),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8132),
                             Descricao = "1935, no corredor da morte de uma prisão sulista. Paul Edgecomb (Tom Hanks) é o chefe de guarda da prisão, que temJohn Coffey (Michael Clarke Duncan) como um de seus prisioneiros. Aos poucos, desenvolve-se entre eles uma relação incomum, baseada na descoberta de que o prisioneiro possui um dom mágico que é, ao mesmo tempo, misterioso e milagroso.",
                             Titulo = "À Espera de um Milagre",
                             UrlImagem = "https://images-na.ssl-images-amazon.com/images/I/71D6IdIFSxL._AC_SY450_.jpg",
@@ -767,7 +791,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 20,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(255),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8133),
                             Descricao = "Quarenta anos da história dos Estados Unidos, vistos pelos olhos de Forrest Gump (Tom Hanks), um rapaz com QI abaixo da média e boas intenções. Por obra do acaso, ele consegue participar de momentos cruciais, como a Guerra do Vietnã e Watergate, mas continua pensando no seu amor de infância, Jenny Curran.",
                             Titulo = "Forrest Gump - O Contador de Histórias",
                             UrlImagem = "https://vignette.wikia.nocookie.net/figure-skating-13/images/7/7f/Large_pEYI2QILJWMN1ZeEMgMM0jxBVhK.jpg/revision/latest/top-crop/width/360/height/450?cb=20170318095424",
@@ -777,7 +801,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 21,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(257),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8135),
                             Descricao = "Durante a Segunda Guerra Mundial na Itália, o judeu Guido (Roberto Benigni) e seu filho Giosué são levados para um campo de concentração nazista. Afastado da mulher, ele tem que usar sua imaginação para fazer o menino acreditar que estão participando de uma grande brincadeira, com o intuito de protegê-lo do terror e da violência que os cercam.",
                             Titulo = "A Vida é Bela",
                             UrlImagem = "https://images-na.ssl-images-amazon.com/images/I/51hH4OZGnLL._AC_SY450_.jpg",
@@ -787,7 +811,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 22,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(259),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8137),
                             Descricao = "Em Vingadores: Guerra Infinita, Thanos (Josh Brolin) enfim chega à Terra, disposto a reunir as Joias do Infinito. Para enfrentá-lo, os Vingadores precisam unir forças com os Guardiões da Galáxia, ao mesmo tempo em que lidam com desavenças entre alguns de seus integrantes.",
                             Titulo = "Vingadores: Guerra Infinita",
                             UrlImagem = "https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/a/a0/AIWTAB.jpg/revision/latest/top-crop/width/360/height/450?cb=20200326084651",
@@ -797,7 +821,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 23,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(261),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8139),
                             Descricao = "Em Vingadores: Ultimato, após Thanos eliminar metade das criaturas vivas em Vingadores: Guerra Infinita, os heróis precisam lidar com a dor da perda de amigos e seus entes queridos. Com Tony Stark (Robert Downey Jr.) vagando perdido no espaço sem água nem comida, o Capitão América/Steve Rogers (Chris Evans) e a Viúva Negra/Natasha Romanov (Scarlett Johansson) precisam liderar a resistência contra o titã louco.",
                             Titulo = "Vingadores: Ultimato",
                             UrlImagem = "https://vignette.wikia.nocookie.net/universocinematograficomarvel/images/b/b7/Images.jpg/revision/latest/top-crop/width/360/height/450?cb=20190505233213&path-prefix=pt",
@@ -807,7 +831,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 24,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(262),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8141),
                             Descricao = "As forças imperais comandadas por Darth Vader (David Prowse/James Earl Jones) lançam um ataque contra os membros da resistência, que são obrigados a fugir. Enquanto isso, Luke Skywalker (Mark Hamill) tenta encontrar o Mestre Yoda, que poderá ensiná-lo a dominar a 'Força' e torná-lo um cavaleiro Jedi. No entanto, Darth Vader planeja levá-lo para o Lado Negro da 'Força'.",
                             Titulo = "Star Wars - O Império Contra-ataca",
                             UrlImagem = "https://vignette.wikia.nocookie.net/starwars/images/a/a8/TheEmpireStrikesBack_SFI_cover.jpg/revision/latest/top-crop/width/360/height/450?cb=20200303223254",
@@ -817,7 +841,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 25,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(264),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8143),
                             Descricao = "Com o desaparecimento de Luke Skywalker, a galáxia se encontra vulnerável para Kylo Ren e a Primeira Ordem. Rey, uma catadora de sucata do deserto, e Finn, um stormtrooper desertor, decidem se unir a Han Solo e Chewbacca numa busca desenfreada para restaurar a paz na galáxia.",
                             Titulo = "Star Wars: O Despertar da Força",
                             UrlImagem = "https://vignette.wikia.nocookie.net/starwars/images/b/b8/TFANewAdventures-Hardcover.jpg/revision/latest/top-crop/width/360/height/450?cb=20170519154150",
@@ -827,7 +851,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 26,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(266),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8144),
                             Descricao = "A jovem Rey começa a mostrar fortes sinais da Força, o que a faz procurar Luke Skywalker, que se vê obrigado a tomar uma decisão que mudará sua vida para sempre. Enquanto isso, a Primeira Ordem é liderada por Kylo Ren e o General Hux para um ataque contra Leia e a Resistência.",
                             Titulo = "Star Wars: Os Últimos Jedi",
                             UrlImagem = "https://vignette.wikia.nocookie.net/starwars/images/2/21/The_Last_Jedi_Studio_Fun.jpg/revision/latest/top-crop/width/360/height/450?cb=20201007114741",
@@ -837,7 +861,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 27,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(268),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8146),
                             Descricao = "Um grupo de heróis improváveis chamado Aliança Rebelde se une para realizar um movimento arriscado e rouba os planos da Estrela da Morte, arma responsável por destruir o Império.",
                             Titulo = "Rogue One: Uma História Star Wars",
                             UrlImagem = "https://vignette.wikia.nocookie.net/starwars/images/d/dc/RogueOneJuniorNovel-Hardcover.png/revision/latest/top-crop/width/360/height/450?cb=20161208092628",
@@ -847,7 +871,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 28,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(270),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8148),
                             Descricao = "Com o retorno do Imperador Palpatine, todos voltam a temer seu poder. A Resistência toma a frente da batalha, enquanto Rey, treinando para ser uma Jedi, ainda se encontra em conflito com seu passado e futuro.",
                             Titulo = "Star Wars: A Ascensão Skywalker",
                             UrlImagem = "https://vignette.wikia.nocookie.net/starwars/images/c/cf/TROS-ExpandedEdition-Hardcover.jpg/revision/latest/top-crop/width/360/height/450?cb=20200413192610",
@@ -857,7 +881,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 29,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(272),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8150),
                             Descricao = "Em dificuldade financeira, o piloto Han Solo (Alden Ehrenreich) e sua namorada Qi'ra (Emilia Clarke) buscam algum trabalho. Eles conseguem pôr as mãos em uma substância valiosa, mas perigosa, que acaba levando à perseguição do Império e à separação entre os dois. Preocupado, Han usa toda a sua esperteza para se infiltrar num plano arriscado, mas que pode render a oportunidade de voltar à terra natal e reencontrar a sua amada. Caso ele falhe, vai ter que prestar contas ao perigoso Dryden Vos (Paul Bettany). No caminho, o piloto encontra parceiros importantes, como Chewbacca (Joonas Suotamo) e Lando Calrissian (Donald Glover), o proprietário original da Millennium Falcon.",
                             Titulo = "Han Solo: Uma História Star Wars",
                             UrlImagem = "https://vignette.wikia.nocookie.net/starwars/images/a/a9/Solo_A_Star_Wars_Story_Theatrical_Poster.png/revision/latest/top-crop/width/360/height/450?cb=20180409011120",
@@ -867,7 +891,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 30,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(274),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8152),
                             Descricao = "Ao desembarcar na Normandia, no dia 6 de junho de 1944, capitão Miller (Tom Hanks) recebe a missão de comandar um grupo do segundo batalhão para o resgate do soldado James Ryan, caçula de quatro irmãos, dentre os quais três morreram em combate. Por ordens do chefe George C. Marshall, eles precisam procurar o soldado e garantir o seu retorno, com vida, para casa.",
                             Titulo = "O Resgate do Soldado Ryan",
                             UrlImagem = "https://andersonvision.com/wp-content/uploads/2018/03/SPR_4K_3D-e1520299793289.jpg",
@@ -877,7 +901,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 31,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(275),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8154),
                             Descricao = "Django (Jamie Foxx) é um escravo liberto cujo passado brutal com seus antigos proprietários leva-o ao encontro do caçador de recompensas alemão Dr. King Schultz (Christoph Waltz). Schultz está em busca dos irmãos assassinos Brittle, e somente Django pode levá-lo a eles. O pouco ortodoxo Schultz compra Django com a promessa de libertá-lo quando tiver capturado os irmãos Brittle, vivos ou mortos.",
                             Titulo = "Django Livre",
                             UrlImagem = "https://vignette.wikia.nocookie.net/sony-pictures-entertaiment/images/0/0b/P9287010_v_v8_aa.jpg/revision/latest/top-crop/width/360/height/450?cb=20190124223003",
@@ -887,7 +911,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 32,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(277),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8156),
                             Descricao = "Cinco anos após convencer os habitantes de seu vilarejo que os dragões não devem ser combatidos, Soluço (voz de Jay Baruchel) convive com seu dragão Fúria da Noite, e estes animais integraram pacificamente a rotina dos moradores da ilha de Berk. Entre viagens pelos céus e corridas de dragões, Soluço descobre uma caverna secreta, onde centenas de novos dragões vivem. O local é protegido por Valka (voz de Cate Blanchett), mãe de Soluço, que foi afastada do filho quando ele ainda era um bebê. Juntos, eles precisarão proteger o mundo que conhecem do perigoso Drago Bludvist (Djimon Hounson), que deseja controlar todos os dragões existentes.",
                             Titulo = "Como Treinar o seu Dragão 2",
                             UrlImagem = "https://vignette.wikia.nocookie.net/universalstudios/images/3/36/How_to_train_your_dragon_2_poster.jpg/revision/latest/top-crop/width/360/height/450?cb=20200705012036",
@@ -897,7 +921,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 33,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(279),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8157),
                             Descricao = "Nos dias finais do reinado de Marcus Aurelius (Richard Harris), o imperador desperta a ira de seu filho Commodus (Joaquin Phoenix) ao tornar pública sua predileção em deixar o trono para Maximus (Russell Crowe), o comandante do exército romano. Sedento pelo poder, Commodus mata seu pai, assume a coroa e ordena a morte de Maximus, que consegue fugir antes de ser pego e passa a se esconder sob a identidade de um escravo e gladiador do Império Romano.",
                             Titulo = "Gladiador",
                             UrlImagem = "https://vignette.wikia.nocookie.net/samplelist/images/f/fb/Gladiator_%282000_film_poster%29.png/revision/latest/top-crop/width/360/height/450?cb=20200825182720",
@@ -907,7 +931,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 34,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(281),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8159),
                             Descricao = "Em À Procura da Felicidade, Chris Gardner (Will Smith) é um pai de família que enfrenta sérios problemas financeiros. Apesar de todas as tentativas em manter a família unida, Linda (Thandie Newton), sua esposa, decide partir. Chris agora é pai solteiro e precisa cuidar de Christopher (Jaden Smith), seu filho de apenas 5 anos. Ele tenta usar sua habilidade como vendedor para conseguir um emprego melhor, que lhe dê um salário mais digno. Chris consegue uma vaga de estagiário numa importante corretora de ações, mas não recebe salário pelos serviços prestados.",
                             Titulo = "À Procura da Felicidade",
                             UrlImagem = "https://vignette.wikia.nocookie.net/jadensmith/images/8/81/Onesheet.jpg/revision/latest/top-crop/width/360/height/450?cb=20171128103224",
@@ -917,7 +941,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 35,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(283),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8161),
                             Descricao = "Riley é uma garota divertida de 11 anos de idade, que deve enfrentar mudanças importantes em sua vida quando seus pais decidem deixar a sua cidade natal, no estado de Minnesota, para viver em San Francisco. Dentro do cérebro de Riley, convivem várias emoções diferentes, como a Alegria, o Medo, a Raiva, o Nojinho e a Tristeza. A líder deles é Alegria, que se esforça bastante para fazer com que a vida de Riley seja sempre feliz.",
                             Titulo = "Divertida Mente",
                             UrlImagem = "https://vignette.wikia.nocookie.net/vozesportuguesas/images/6/60/Divertida-Mente_%28Inside_Out%29.jpg/revision/latest/top-crop/width/360/height/450?cb=20200819022357&path-prefix=pt",
@@ -927,7 +951,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 36,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(304),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8183),
                             Descricao = "Durante a Segunda Guerra Mundial, o médico do exército Desmond T. Doss (Andrew Garfield) se recusa a pegar em uma arma e matar pessoas, porém, durante a Batalha de Okinawa ele trabalha na ala médica e salva mais de 75 homens, sendo condecorado. O que faz de Doss o primeiro Opositor Consciente da história norte-americana a receber a Medalha de Honra do Congresso.",
                             Titulo = "Até o Último Homem",
                             UrlImagem = "https://vignette.wikia.nocookie.net/doblaje/images/b/b5/Hasta_el_ultimo_hombre_poster_oficial.jpg/revision/latest/top-crop/width/360/height/450?cb=20161214050010&path-prefix=es",
@@ -937,7 +961,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 37,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(306),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8185),
                             Descricao = "Inglaterra, 1797. As cinco irmãs Bennet - Elizabeth (Keira Knightley), Jane (Rosamund Pike), Lydia (Jena Malone), Mary (Talulah Riley) e Kitty (Carey Mulligan) - foram criadas por uma mãe (Brenda Blethyn) que tinha fixação em lhes encontrar maridos que garantissem seu futuro. Porém Elizabeth deseja ter uma vida mais ampla do que apenas se dedicar ao marido, sendo apoiada pelo pai (Donald Sutherland). Quando o sr. Bingley (Simon Woods), um solteiro rico, passa a morar em uma mansão vizinha, as irmãs logo ficam agitadas. Jane logo parece que conquistará o coração do novo vizinho, enquanto que Elizabeth conhece o bonito e esnobe sr. Darcy (Matthew Macfadyen). Os encontros entre Elizabeth e Darcy passam a ser cada vez mais constantes, apesar deles sempre discutirem.",
                             Titulo = "Orgulho e Preconceito",
                             UrlImagem = "https://i.pinimg.com/474x/ca/7a/cf/ca7acf060eb528325ee8f5da4040d9d6.jpg",
@@ -947,7 +971,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 38,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(308),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8187),
                             Descricao = "Jack (Edward Norton) é um executivo jovem, trabalha como investigador de seguros, mora confortavelmente, mas ele está ficando cada vez mais insatisfeito com sua vida medíocre. Para piorar ele está enfrentando uma terrível crise de insônia, até que encontra uma cura inusitada para o sua falta de sono ao frequentar grupos de auto-ajuda. Nesses encontros ele passa a conviver com pessoas problemáticas como a viciada Marla Singer (Helena Bonham Carter) e a conhecer estranhos como Tyler Durden (Brad Pitt). Misterioso e cheio de ideias, Tyler apresenta para Jack um grupo secreto que se encontra para extravasar suas angústias e tensões através de violentos combates corporais.",
                             Titulo = "Clube da Luta",
                             UrlImagem = "https://i.pinimg.com/originals/9e/a9/9e/9ea99e70bc6639670d1a506a18e83e22.jpg",
@@ -957,7 +981,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 39,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(310),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8189),
                             Descricao = "Após ver a Terra consumindo boa parte de suas reservas naturais, um grupo de astronautas recebe a missão de verificar possíveis planetas para receberem a população mundial, possibilitando a continuação da espécie. Cooper (Matthew McConaughey) é chamado para liderar o grupo e aceita a missão sabendo que pode nunca mais ver os filhos. Ao lado de Brand (Anne Hathaway), Jenkins (Marlon Sanders) e Doyle (Wes Bentley), ele seguirá em busca de uma nova casa. Com o passar dos anos, sua filha Murph (Mackenzie Foy e Jessica Chastain) investirá numa própria jornada para também tentar salvar a população do planeta.",
                             Titulo = "Interestelar",
                             UrlImagem = "https://vignette.wikia.nocookie.net/chrisnolan/images/4/46/Interstellar_poster.jpg/revision/latest/top-crop/width/360/height/450?cb=20160812013355",
@@ -967,7 +991,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 40,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 312, DateTimeKind.Local).AddTicks(312),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 801, DateTimeKind.Local).AddTicks(8191),
                             Descricao = "Em um futuro próximo, Thomas Anderson (Keanu Reeves), um jovem programador de computador que mora em um cubículo escuro, é atormentado por estranhos pesadelos nos quais encontra-se conectado por cabos e contra sua vontade, em um imenso sistema de computadores do futuro. Em todas essas ocasiões, acorda gritando no exato momento em que os eletrodos estão para penetrar em seu cérebro. À medida que o sonho se repete, Anderson começa a ter dúvidas sobre a realidade. Por meio do encontro com os misteriosos Morpheus (Laurence Fishburne) e Trinity (Carrie-Anne Moss), Thomas descobre que é, assim como outras pessoas, vítima do Matrix, um sistema inteligente e artificial que manipula a mente das pessoas, criando a ilusão de um mundo real enquanto usa os cérebros e corpos dos indivíduos para produzir energia. Morpheus, entretanto, está convencido de que Thomas é Neo, o aguardado messias capaz de enfrentar o Matrix e conduzir as pessoas de volta à realidade e à liberdade.",
                             Titulo = "Matrix",
                             UrlImagem = "https://imgc.artprintimages.com/img/print/carrie-anne-moss_u-l-pnenjz0.jpg",
@@ -1016,7 +1040,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 1,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 309, DateTimeKind.Local).AddTicks(6318),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 799, DateTimeKind.Local).AddTicks(4967),
                             Email = "adm@videolocadora.com.br",
                             Login = "admin",
                             Nome = "Administrador",
@@ -1027,7 +1051,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
                         {
                             Id = 2,
                             Ativo = true,
-                            Cadastro = new DateTime(2020, 10, 22, 20, 34, 23, 310, DateTimeKind.Local).AddTicks(6780),
+                            Cadastro = new DateTime(2020, 10, 26, 17, 11, 57, 800, DateTimeKind.Local).AddTicks(6019),
                             Email = "bruno.tragl@videolocadora.com.br",
                             Login = "brunotragl",
                             Nome = "Bruno",
@@ -1039,20 +1063,20 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Migrations
             modelBuilder.Entity("BrunoTragl.Inovation.Videolocadora.Domain.Model.Aluguel", b =>
                 {
                     b.HasOne("BrunoTragl.Inovation.Videolocadora.Domain.Model.Cliente", "Cliente")
-                        .WithOne("Aluguel")
-                        .HasForeignKey("BrunoTragl.Inovation.Videolocadora.Domain.Model.Aluguel", "ClienteId")
+                        .WithMany()
+                        .HasForeignKey("ClienteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("BrunoTragl.Inovation.Videolocadora.Domain.Model.Filme", "Filme")
-                        .WithOne("Aluguel")
-                        .HasForeignKey("BrunoTragl.Inovation.Videolocadora.Domain.Model.Aluguel", "FilmeId")
+                        .WithMany()
+                        .HasForeignKey("FilmeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("BrunoTragl.Inovation.Videolocadora.Domain.Model.Funcionario", "Funcionario")
-                        .WithOne("Aluguel")
-                        .HasForeignKey("BrunoTragl.Inovation.Videolocadora.Domain.Model.Aluguel", "FuncionarioId")
+                        .WithMany()
+                        .HasForeignKey("FuncionarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

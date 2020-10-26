@@ -59,7 +59,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Application.Business
         {
             try
             {
-                return _aluguelRepository.Get(a => a.Filme.Id == filme.Id).Count() > 0;
+                return true; // _aluguelRepository.Get(a => a.Filme.Id == filme.Id).Count() > 0;
             }
             catch (Exception ex)
             {

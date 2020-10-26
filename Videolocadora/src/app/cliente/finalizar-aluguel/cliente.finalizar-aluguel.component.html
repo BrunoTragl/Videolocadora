@@ -1,0 +1,54 @@
+<app-nav></app-nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h1>Finalizar Aluguel de Filmes | Cliente {{cliente.nome}}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div *ngFor="let filmeSelecionado of filmesSelecionados">
+                <p><img [src]="filmeSelecionado.urlImagem" width="60"> 
+                  <span class="espacamento-esquerda">{{filmeSelecionado.titulo}}</span> | 
+                  <span class="blue">R$ {{_tratamentoDados.getMoeda(filmeSelecionado.valor)}}</span> 
+                  <span *ngIf="filmeSelecionado.valor === 0" class="espacamento-esquerda red">Alocação Gratuita</span>
+                </p>
+                <hr>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 espacamento-topo">
+          <h4 class="blue right">Valor total: R$ {{_tratamentoDados.getMoeda(valorTotalAluguel)}}</h4>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 left">
+            <button type="button" class="btn btn-danger right espacamento-esquerda" (click)="cancelarRegistroFilmes()">Cancelar</button>
+            <button type="button" class="btn btn-primary right" data-toggle="modal" data-target="#modal-finalizar-aluguel">Finalizar</button>
+        </div>
+    </div>
+    <div class="row row-espacamento">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <p [ngStyle]="{'display': exibirMensagemRetorno == true ? 'block' : 'none'}" >{{mensagemRetorno}}</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modal-finalizar-aluguel" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-label">Finalizar Aluguel</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Para finalizar, confirme o pagamento do aluguel de todos os filmes selecionados, no valor de <span class="bold-forte">R$ {{_tratamentoDados.getMoeda(valorTotalAluguel)}}</span>?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal" (click)="finalizar()">Pagamento realizado!</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Ainda não</button>
+        </div>
+      </div>
+    </div>
+  </div>

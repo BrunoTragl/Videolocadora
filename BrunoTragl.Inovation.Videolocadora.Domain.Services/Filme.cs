@@ -10,7 +10,6 @@ namespace BrunoTragl.Inovation.Videolocadora.Domain.Model
         public string UrlImagem { get; set; }
         public decimal Valor { get; set; }
         public DateTime Cadastro { get; set; }
-        public virtual Aluguel Aluguel { get; set; }
         public bool Ativo { get; set; }
     }
 }

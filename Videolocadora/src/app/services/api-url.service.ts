@@ -6,6 +6,7 @@ export class ApiUrlService {
     public filme: string;
     public aluguel: string;
     public cliente: string;
+    public relatorio: string;
 
     constructor(){
         let base = 'https://localhost:44306/api/';
@@ -14,5 +15,6 @@ export class ApiUrlService {
         this.filme = `${base}filme`;
         this.aluguel = `${base}aluguel`;
         this.cliente = `${base}cliente`;
+        this.relatorio = `${base}relatorio`;
     }
 }

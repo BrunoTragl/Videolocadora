@@ -1,0 +1,29 @@
+<app-nav></app-nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h1>Relatório | Aluguéis Ativos</h1>
+        </div>
+    </div>
+    <div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <td class="bold-medio">Cliente</td>
+                        <td class="bold-medio">Filme</td>
+                        <td class="bold-medio">Cadastro Cliente</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let aluguel of alugueisAtivos">
+                        <td>{{aluguel.cliente.nome}}</td>
+                        <td>{{aluguel.filme.titulo}}</td>
+                        <td><a href="clientes/detalhes/{{aluguel.cliente.id}}">Acessar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

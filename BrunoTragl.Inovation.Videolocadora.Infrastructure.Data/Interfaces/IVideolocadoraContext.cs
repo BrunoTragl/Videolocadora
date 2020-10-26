@@ -9,6 +9,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data.Interfaces
         DbSet<Cliente> Cliente { get; set; }
         DbSet<Filme> Filme { get; set; }
         DbSet<Funcionario> Funcionario { get; set; }
+        DbSet<ControlePromocional> ControlePromocional { get; set; }
         int SaveChanges();
     }
 }

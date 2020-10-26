@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
   }
 
   onResized(event: ResizedEvent) {
-    if(event.newHeight < window.innerHeight) {
+    if(event.newHeight < (window.innerHeight)) {
       this.position = 'fixed';
     }
     else {

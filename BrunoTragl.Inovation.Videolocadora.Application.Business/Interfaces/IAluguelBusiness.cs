@@ -14,5 +14,8 @@ namespace BrunoTragl.Inovation.Videolocadora.Application.Business.Interfaces
         bool Exist(int id);
         void Desactive(Aluguel aluguel);
         IEnumerable<Aluguel> Get(Expression<Func<Aluguel, bool>> exp);
+        int DiasParaDevolucao();
+        decimal? CalcularMulta(int id);
+        bool ClientePossuiAluguelGratuito(int clienteId);
     }
 }

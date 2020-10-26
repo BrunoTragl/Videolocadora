@@ -59,6 +59,20 @@
             </div>
         </form>
     </div>
+    <div class="row espacamento-topo">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h1>Aluguéis Ativos</h1>
+        </div>
+        <div *ngFor="let aluguel of alugueisAtivos" class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+            <div (click)="enterAluguel(aluguel.id)" class="quadro-selecionavel">
+                <div class="quadro-selecionavel-padding-laterais altura-infos">
+                    <p>Devolver em {{_tratamentoDados.getDataString(aluguel.devolucao)}}</p>
+                    <p *ngIf="aluguelAtrasado(aluguel)" class="red bold-forte">{{diasEmAtraso(aluguel)}} dias em atraso</p>
+                </div>
+                <img [src]="aluguel.filme.urlImagem" width="100%" />
+            </div>
+        </div>
+    </div>
 </div>
 
 

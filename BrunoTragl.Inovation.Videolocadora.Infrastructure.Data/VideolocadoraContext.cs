@@ -19,6 +19,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data
         public DbSet<Cliente> Cliente { get; set; }
         public DbSet<Filme> Filme { get; set; }
         public DbSet<Funcionario> Funcionario { get; set; }
+        public DbSet<ControlePromocional> ControlePromocional { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -31,6 +32,7 @@ namespace BrunoTragl.Inovation.Videolocadora.Infrastructure.Data
             modelBuilder.ApplyConfiguration(new ClienteConfiguration());
             modelBuilder.ApplyConfiguration(new FilmeConfiguration());
             modelBuilder.ApplyConfiguration(new FuncionarioConfiguration());
+            modelBuilder.ApplyConfiguration(new ControlePromocionalConfiguration());
             modelBuilder.SeedData(this);
         }
     }

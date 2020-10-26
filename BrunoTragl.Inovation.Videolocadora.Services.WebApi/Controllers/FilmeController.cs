@@ -1,4 +1,5 @@
-﻿using BrunoTragl.Inovation.Videolocadora.Application.Business.Interfaces;
+﻿
+using BrunoTragl.Inovation.Videolocadora.Application.Business.Interfaces;
 using BrunoTragl.Inovation.Videolocadora.Domain.Model;
 using BrunoTragl.Inovation.Videolocadora.Services.WebApi.Model;
 using Microsoft.AspNetCore.Mvc;
